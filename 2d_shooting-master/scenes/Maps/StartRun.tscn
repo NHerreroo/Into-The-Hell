@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://13bvqe3mewvs"]
+
+[ext_resource type="Script" path="res://scripts/StartRun.gd" id="1_cavhe"]
+[ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="2_wg7vs"]
+[ext_resource type="Texture2D" uid="uid://ctgdi5468v72n" path="res://sprites/buttons.png" id="3_3paoe"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cavhe")
+metadata/_edit_horizontal_guides_ = [230.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+layout_mode = 0
+offset_right = 637.0
+offset_bottom = 467.0
+color = Color(0, 0, 0, 0.662745)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 124.0
+offset_right = 427.0
+offset_bottom = 163.0
+theme_override_colors/font_outline_color = Color(0.192157, 0.0431373, 0.0235294, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("2_wg7vs")
+theme_override_font_sizes/font_size = 40
+text = "START RUN?"
+
+[node name="YES" type="Button" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 227.0
+offset_right = 271.0
+offset_bottom = 292.0
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0.159168, 0.03246, 0.0288075, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_wg7vs")
+theme_override_font_sizes/font_size = 20
+text = "YES"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="YES"]
+z_index = -1
+position = Vector2(67, 34)
+texture = ExtResource("3_3paoe")
+
+[node name="NO" type="Button" parent="."]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 231.0
+offset_right = 483.0
+offset_bottom = 286.0
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0.159168, 0.03246, 0.0288075, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_wg7vs")
+theme_override_font_sizes/font_size = 20
+text = "NO
+"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="NO"]
+z_index = -1
+position = Vector2(67, 29)
+texture = ExtResource("3_3paoe")
+
+[connection signal="pressed" from="YES" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="NO" to="." method="_on_no_pressed"]

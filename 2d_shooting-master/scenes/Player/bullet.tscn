@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5g07x5i7ip5u"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_sfjf2"]
+[ext_resource type="Texture2D" uid="uid://cfdims7slndyt" path="res://sprites/bullet1.png" id="2_8bobo"]
+[ext_resource type="Texture2D" uid="uid://dvdb5twtb0kv7" path="res://sprites/bullet2.png" id="3_pokqt"]
+[ext_resource type="Texture2D" uid="uid://bik4fosw3jr5w" path="res://sprites/bullet3.png" id="4_nwrrp"]
+[ext_resource type="Texture2D" uid="uid://ctd88fbfl7u4s" path="res://sprites/bullet4.png" id="5_0boub"]
+[ext_resource type="Texture2D" uid="uid://dqry8s0cug3s1" path="res://sprites/GlobalLight.png" id="6_hfxme"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2412u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8bobo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pokqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nwrrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0boub")
+}],
+"loop": true,
+"name": &"Bullet1",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2q37d"]
+
+[node name="Bullet" type="Area2D"]
+scale = Vector2(0.12, 0.120002)
+collision_mask = 5
+script = ExtResource("1_sfjf2")
+
+[node name="Sprite2d" type="AnimatedSprite2D" parent="."]
+position = Vector2(19, 0)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_2412u")
+animation = &"Bullet1"
+frame = 2
+frame_progress = 0.393222
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="."]
+position = Vector2(17, 0)
+scale = Vector2(1.53412, 1.64)
+shape = SubResource("CircleShape2D_2q37d")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(17, 0)
+scale = Vector2(0.342187, 0.349479)
+energy = 0.57
+texture = ExtResource("6_hfxme")
+
+[connection signal="body_entered" from="." to="." method="_on_bullet_body_entered"]

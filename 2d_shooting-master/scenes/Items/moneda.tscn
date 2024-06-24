@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtowo376c1pts"]
+
+[ext_resource type="Script" path="res://scripts/moneda.gd" id="1_0ky6l"]
+[ext_resource type="Texture2D" uid="uid://fmuhfl3jhjbk" path="res://sprites/penny.png" id="1_ohdqn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6vjgj"]
+radius = 13.7795
+
+[sub_resource type="Animation" id="Animation_j4xqa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_tgus6"]
+resource_name = "jump_coin"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -1), Vector2(0, -93), Vector2(-1, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syh1x"]
+_data = {
+"RESET": SubResource("Animation_j4xqa"),
+"jump_coin": SubResource("Animation_tgus6")
+}
+
+[node name="StaticBody2D" type="StaticBody2D"]
+scale = Vector2(0.510154, 0.512721)
+script = ExtResource("1_0ky6l")
+
+[node name="shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.690196)
+position = Vector2(-1, 1.19209e-06)
+scale = Vector2(1.94189, 1.94189)
+texture = ExtResource("1_ohdqn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(2.10938, 2.10938)
+texture = ExtResource("1_ohdqn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 2)
+scale = Vector2(1.99406, 1.17342)
+shape = SubResource("CircleShape2D_6vjgj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_syh1x")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

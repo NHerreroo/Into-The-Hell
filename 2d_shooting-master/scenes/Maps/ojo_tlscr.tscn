@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://drgc6autyclnp"]
+
+[ext_resource type="Texture2D" uid="uid://8rh37qmu2y6w" path="res://sprites/ojocojon.png" id="1_0pldn"]
+[ext_resource type="Texture2D" uid="uid://cssb68pitc3wo" path="res://sprites/ojocojonpuppil.png" id="2_avq0l"]
+[ext_resource type="Script" path="res://scenes/Maps/puppil.gd" id="3_kr8xr"]
+
+[node name="Ojo_tlscr" type="Sprite2D"]
+scale = Vector2(2.33333, 2.375)
+texture = ExtResource("1_0pldn")
+
+[node name="Ojocojonpuppil" type="Sprite2D" parent="."]
+position = Vector2(-0.0896694, 0.0325077)
+rotation = -0.00623628
+scale = Vector2(0.893507, -1.29394)
+texture = ExtResource("2_avq0l")
+offset = Vector2(-0.832121, 1.62576)
+script = ExtResource("3_kr8xr")

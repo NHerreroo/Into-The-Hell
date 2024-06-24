@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3m2seu6m321i"]
+
+[ext_resource type="Texture2D" uid="uid://bc1lb8h4bby5t" path="res://sprites/Enemies/Flydamage.png" id="1_7k4qf"]
+[ext_resource type="Script" path="res://scripts/fly.gd" id="1_7ydng"]
+[ext_resource type="Texture2D" uid="uid://gtppxmyj8wnh" path="res://sprites/Enemies/Fly1.png" id="1_d6f4w"]
+[ext_resource type="Texture2D" uid="uid://ccohr2idgeyhu" path="res://sprites/Enemies/Fly2.png" id="4_3ndsj"]
+[ext_resource type="Texture2D" uid="uid://cfdims7slndyt" path="res://sprites/bullet1.png" id="5_d1fol"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lf4bv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7k4qf")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d6f4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3ndsj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vsj1m"]
+radius = 8.06226
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vevkh"]
+radius = 14.0
+
+[node name="fly" type="CharacterBody2D" groups=["mobs"]]
+y_sort_enabled = true
+scale = Vector2(1.72608, 1.79657)
+script = ExtResource("1_7ydng")
+
+[node name="Fly" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.579348, -0.556618)
+scale = Vector2(0.570166, 0.570166)
+sprite_frames = SubResource("SpriteFrames_lf4bv")
+animation = &"idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="Fly"]
+modulate = Color(0, 0, 0, 0.505882)
+position = Vector2(-4.76837e-07, 52.7168)
+scale = Vector2(1, 0.304753)
+texture = ExtResource("5_d1fol")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_vsj1m")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_vevkh")

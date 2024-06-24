@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://scb1tg86u8gg"]
+
+[ext_resource type="Script" path="res://TitleSceern.gd" id="1_udb81"]
+[ext_resource type="Texture2D" uid="uid://d0w7xme1vtmfi" path="res://sprites/title screen.png" id="2_7bbv3"]
+[ext_resource type="PackedScene" uid="uid://drgc6autyclnp" path="res://scenes/Maps/ojo_tlscr.tscn" id="3_sr3vj"]
+[ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="3_vvx8s"]
+[ext_resource type="Texture2D" uid="uid://ctgdi5468v72n" path="res://sprites/buttons.png" id="4_ywqk3"]
+[ext_resource type="Texture2D" uid="uid://cjp61eqw7bsar" path="res://sprites/logo2.png" id="6_ce8tv"]
+
+[sub_resource type="Animation" id="Animation_rgv0p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n7yvf"]
+resource_name = "fadeout"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transition:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_krlmb"]
+_data = {
+"RESET": SubResource("Animation_rgv0p"),
+"fadeout": SubResource("Animation_n7yvf")
+}
+
+[node name="TitleSceern" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_udb81")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 639.0
+offset_bottom = 479.0
+color = Color(0.996078, 0.843137, 0.737255, 1)
+
+[node name="Logo2" type="Sprite2D" parent="."]
+position = Vector2(330, 85)
+scale = Vector2(0.765432, 0.765432)
+texture = ExtResource("6_ce8tv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(325, 249)
+scale = Vector2(1.19083, 1.10573)
+texture = ExtResource("2_7bbv3")
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 384.0
+offset_right = 369.0
+offset_bottom = 429.0
+scale = Vector2(1.39182, 1.49023)
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0.159168, 0.03246, 0.0288075, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("3_vvx8s")
+theme_override_font_sizes/font_size = 29
+text = "Play
+"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Start"]
+z_index = -1
+position = Vector2(74.0038, 22.8153)
+scale = Vector2(1.07861, 0.672828)
+texture = ExtResource("4_ywqk3")
+
+[node name="Ojo_tlscr" parent="." instance=ExtResource("3_sr3vj")]
+position = Vector2(323, 242)
+scale = Vector2(3.89071, 4.15014)
+
+[node name="transition" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -17.0
+offset_right = 26.0
+offset_bottom = 23.0
+scale = Vector2(16.7456, 13.2463)
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_krlmb")
+}
+
+[connection signal="pressed" from="Start" to="." method="_on_button_pressed"]

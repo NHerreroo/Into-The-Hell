@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5hiysn7apoyf"]
+
+[ext_resource type="Script" path="res://scripts/flybomb.gd" id="1_nxa7g"]
+[ext_resource type="Texture2D" uid="uid://y5e6v7gqellg" path="res://sprites/Enemies/moscaombadamage.png" id="1_s65kf"]
+[ext_resource type="Texture2D" uid="uid://doq1n684l0sdv" path="res://sprites/Enemies/mosca nomba1.png" id="2_tys3j"]
+[ext_resource type="Texture2D" uid="uid://cysb7m375gvy5" path="res://sprites/Enemies/moscabomba2.png" id="3_xw175"]
+[ext_resource type="Texture2D" uid="uid://cfdims7slndyt" path="res://sprites/bullet1.png" id="4_m1slx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rmhht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s65kf")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tys3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xw175")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_crdcy"]
+radius = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_awq8l"]
+radius = 26.1725
+
+[node name="flybomb" type="CharacterBody2D" groups=["mobs"]]
+y_sort_enabled = true
+scale = Vector2(0.94912, 1.0147)
+script = ExtResource("1_nxa7g")
+
+[node name="bomb" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rmhht")
+animation = &"idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="bomb"]
+modulate = Color(0, 0, 0, 0.341176)
+position = Vector2(2.38419e-07, 59.3396)
+scale = Vector2(1.08647, 0.33344)
+texture = ExtResource("4_m1slx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, 5)
+shape = SubResource("CircleShape2D_crdcy")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 3)
+shape = SubResource("CircleShape2D_awq8l")

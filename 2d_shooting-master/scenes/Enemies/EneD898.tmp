@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://f8usfq6n6542"]
+
+[ext_resource type="Script" path="res://scripts/Enemy1.gd" id="1_ybhte"]
+[ext_resource type="Texture2D" uid="uid://dxf1hpuw1rt6k" path="res://sprites/SlimeShine.png" id="2_cy412"]
+[ext_resource type="Texture2D" uid="uid://pl3e5xcuv32h" path="res://sprites/Slime1.png" id="2_lwjop"]
+[ext_resource type="Texture2D" uid="uid://cw2wlsi400tv1" path="res://sprites/Slime2.png" id="3_8eb5j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfrcw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cy412")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lwjop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8eb5j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_2pcbr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yayvi"]
+resource_name = "damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1e8r5"]
+_data = {
+"RESET": SubResource("Animation_2pcbr"),
+"damage": SubResource("Animation_yayvi")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_okvb2"]
+radius = 29.0172
+
+[node name="Node2D" type="CharacterBody2D" groups=["mobs"]]
+script = ExtResource("1_ybhte")
+
+[node name="Enemie1" type="AnimatedSprite2D" parent="." groups=["mobs"]]
+scale = Vector2(1.01449, 1.04299)
+sprite_frames = SubResource("SpriteFrames_kfrcw")
+animation = &"damage"
+frame_progress = 0.480928
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemie1"]
+libraries = {
+"": SubResource("AnimationLibrary_1e8r5")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 11)
+scale = Vector2(0.654114, 0.212011)
+shape = SubResource("CircleShape2D_okvb2")

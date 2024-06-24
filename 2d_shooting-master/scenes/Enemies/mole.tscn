@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://b4fsskqpenuoh"]
+
+[ext_resource type="Script" path="res://scripts/mole.gd" id="1_u4j7p"]
+[ext_resource type="Texture2D" uid="uid://d3oe4hukhccsg" path="res://sprites/Enemies/topo1.png" id="2_ob1dg"]
+[ext_resource type="Texture2D" uid="uid://ckokkfk3xryds" path="res://sprites/Enemies/topodamage.png" id="2_qdhlp"]
+[ext_resource type="Texture2D" uid="uid://c0ywthpr31sxj" path="res://sprites/Enemies/topo5.png" id="3_1mx78"]
+[ext_resource type="Texture2D" uid="uid://b24y0vy7b0dtt" path="res://sprites/Enemies/topo3.png" id="4_r53h2"]
+[ext_resource type="Texture2D" uid="uid://casxa0nq30o2" path="res://sprites/Enemies/topo4.png" id="5_drsx7"]
+[ext_resource type="Texture2D" uid="uid://o1r3vluxnwxn" path="res://sprites/Enemies/nada.png" id="6_scwsw"]
+[ext_resource type="Texture2D" uid="uid://cfdims7slndyt" path="res://sprites/bullet1.png" id="7_63ocq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bcu64"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qdhlp")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ob1dg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1mx78")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_r53h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_drsx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ob1dg")
+}],
+"loop": true,
+"name": &"entra",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_scwsw")
+}],
+"loop": true,
+"name": &"esconde",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ob1dg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_drsx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r53h2")
+}],
+"loop": true,
+"name": &"sale",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n28f7"]
+radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlejw"]
+radius = 22.3607
+
+[node name="mole" type="CharacterBody2D" groups=["mobs"]]
+y_sort_enabled = true
+position = Vector2(319, 239)
+scale = Vector2(1.10368, 0.979412)
+script = ExtResource("1_u4j7p")
+
+[node name="topo" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bcu64")
+
+[node name="shadow" type="Sprite2D" parent="topo"]
+modulate = Color(0, 0, 0, 0.576471)
+z_index = -1
+position = Vector2(0, 23)
+scale = Vector2(2.07673, 0.544191)
+texture = ExtResource("7_63ocq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 18)
+scale = Vector2(1.08923, 0.430325)
+shape = SubResource("CircleShape2D_n28f7")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.05176e-05, 19.29)
+scale = Vector2(1.27257, 0.504207)
+shape = SubResource("CircleShape2D_xlejw")

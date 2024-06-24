@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4u2wu7i80smm"]
+
+[ext_resource type="Script" path="res://scripts/Select Item.gd" id="1_jdgis"]
+[ext_resource type="PackedScene" uid="uid://bcp4ra6pm2jtu" path="res://scenes/Items/ItemCard.tscn" id="2_ni8gs"]
+[ext_resource type="Shader" path="res://Shaders/dissolve.gdshader" id="3_srtej"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3t3tn"]
+seed = -15
+frequency = 0.0021
+fractal_octaves = 4
+fractal_lacunarity = 1.975
+fractal_gain = 0.74
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_av4a2"]
+noise = SubResource("FastNoiseLite_3t3tn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jy52b"]
+resource_local_to_scene = true
+shader = ExtResource("3_srtej")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.03
+shader_parameter/burn_color = Color(0, 0, 0, 1)
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_av4a2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lgkpo"]
+resource_local_to_scene = true
+shader = ExtResource("3_srtej")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.03
+shader_parameter/burn_color = Color(0, 0, 0, 1)
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_av4a2")
+
+[node name="Select Item" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jdgis")
+metadata/_edit_horizontal_guides_ = [106.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 644.0
+offset_bottom = 479.0
+color = Color(0, 0, 0, 0.670588)
+
+[node name="Card1" parent="CanvasLayer" instance=ExtResource("2_ni8gs")]
+material = SubResource("ShaderMaterial_jy52b")
+offset_left = 89.3224
+offset_top = 107.458
+offset_right = 233.322
+offset_bottom = 320.458
+
+[node name="Card2" parent="CanvasLayer" instance=ExtResource("2_ni8gs")]
+material = SubResource("ShaderMaterial_lgkpo")
+offset_left = 416.322
+offset_top = 104.458
+offset_right = 560.322
+offset_bottom = 317.458
+
+[node name="Chose" type="Label" parent="CanvasLayer"]
+offset_left = 283.0
+offset_top = 64.0
+offset_right = 378.0
+offset_bottom = 90.0
+text = "CHOSE ITEM"
+
+[node name="Or" type="Label" parent="CanvasLayer"]
+offset_left = 320.0
+offset_top = 225.0
+offset_right = 360.0
+offset_bottom = 251.0
+text = "OR
+"

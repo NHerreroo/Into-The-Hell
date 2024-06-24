@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://bg73wejniq0gv"]
+
+[ext_resource type="Script" path="res://scripts/thrower.gd" id="1_ekpeb"]
+[ext_resource type="Texture2D" uid="uid://yheh8ki2g4ma" path="res://sprites/Enemies/thrower1.png" id="1_s01b7"]
+[ext_resource type="Texture2D" uid="uid://bxcx8mx1vqk4p" path="res://sprites/Enemies/throwerdamage.png" id="2_2or27"]
+[ext_resource type="Texture2D" uid="uid://c7kv1lxpompeq" path="res://sprites/Enemies/thrower2.png" id="2_m2j14"]
+[ext_resource type="Texture2D" uid="uid://btvqkkryg35tw" path="res://sprites/Enemies/thrower3.png" id="3_dsre6"]
+[ext_resource type="Texture2D" uid="uid://cfdims7slndyt" path="res://sprites/bullet1.png" id="4_0kd23"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_33x0o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2or27")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s01b7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m2j14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dsre6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m2j14")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xik4e"]
+radius = 12.6527
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ao4km"]
+radius = 10.363
+
+[node name="Thrower" type="CharacterBody2D" groups=["mobs"]]
+scale = Vector2(1.35164, 1.43843)
+script = ExtResource("1_ekpeb")
+
+[node name="throwr" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_33x0o")
+animation = &"idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="throwr"]
+modulate = Color(0, 0, 0, 0.486275)
+z_index = -1
+position = Vector2(-0.5, 13.25)
+scale = Vector2(1.26, 0.31)
+texture = ExtResource("4_0kd23")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4.76837e-07, 11)
+scale = Vector2(1.28138, 0.489344)
+shape = SubResource("CircleShape2D_xik4e")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
+scale = Vector2(2.05701, 0.88185)
+shape = SubResource("CircleShape2D_ao4km")

@@ -1,0 +1,152 @@
+[gd_scene load_steps=19 format=3 uid="uid://nfsumg4c8efm"]
+
+[ext_resource type="Script" path="res://scenes/Enemies/Worm_boss.gd" id="1_4ye1l"]
+[ext_resource type="Texture2D" uid="uid://b6nn7lw420ns7" path="res://sprites/Enemies/bossslimedamage.png" id="2_vkf8l"]
+[ext_resource type="Texture2D" uid="uid://d1i1mnm8cseel" path="res://sprites/Enemies/entr32gusano.png" id="3_7pj8j"]
+[ext_resource type="Texture2D" uid="uid://d21ye6wi2se7" path="res://sprites/Enemies/gusanoserio1.png" id="3_mv44f"]
+[ext_resource type="Texture2D" uid="uid://rvdnjgoer5b6" path="res://sprites/Enemies/gusanoserio2.png" id="4_agjsi"]
+[ext_resource type="Texture2D" uid="uid://dr0s81ur7aid8" path="res://sprites/Enemies/entra2gusano.png" id="4_nsojj"]
+[ext_resource type="Texture2D" uid="uid://sdwr7g8as3id" path="res://sprites/Enemies/entra1gusano.png" id="5_ppdoi"]
+[ext_resource type="Texture2D" uid="uid://cjmx0ibrgf28t" path="res://sprites/Enemies/gusanoserio3.png" id="5_ys5xv"]
+[ext_resource type="Texture2D" uid="uid://cjvehr8ylbl4y" path="res://sprites/Enemies/gusano1.png" id="6_rop5k"]
+[ext_resource type="Texture2D" uid="uid://dhg3kb1yegujn" path="res://sprites/Enemies/gusano2.png" id="7_3kbel"]
+[ext_resource type="Texture2D" uid="uid://dhug2h14uwupd" path="res://sprites/Enemies/gusano3.png" id="8_yc5tm"]
+[ext_resource type="Texture2D" uid="uid://3s1k738susqa" path="res://sprites/Enemies/suelto1.png" id="9_soxmf"]
+[ext_resource type="Texture2D" uid="uid://dxvvdc6oc6ds1" path="res://sprites/Enemies/suelto2.png" id="10_e1gkr"]
+[ext_resource type="Texture2D" uid="uid://cpm0yfcbwmngq" path="res://sprites/Enemies/suelto23png.png" id="11_ckip7"]
+[ext_resource type="Texture2D" uid="uid://cfdims7slndyt" path="res://sprites/bullet1.png" id="11_ko2h3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1mtlq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vkf8l")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7pj8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nsojj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ppdoi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rop5k")
+}],
+"loop": true,
+"name": &"entra",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mv44f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_agjsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ys5xv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_agjsi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rop5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ppdoi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nsojj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7pj8j")
+}],
+"loop": true,
+"name": &"sale",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rop5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3kbel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yc5tm")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_soxmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_e1gkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ckip7")
+}],
+"loop": true,
+"name": &"suelo",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_otndv"]
+radius = 13.3408
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jwff0"]
+
+[node name="WormBoss" type="CharacterBody2D" groups=["mobs"]]
+scale = Vector2(2.34872, 2.2875)
+script = ExtResource("1_4ye1l")
+
+[node name="WormBosas" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_1mtlq")
+animation = &"sale"
+frame_progress = 0.645291
+
+[node name="Bullet1" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.654902)
+z_index = -1
+position = Vector2(-4.6834, 44.5902)
+scale = Vector2(2.42521, 0.702886)
+texture = ExtResource("11_ko2h3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.851528, 40.6557)
+scale = Vector2(2.71273, -0.781804)
+shape = SubResource("CircleShape2D_otndv")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.425764, 39.7814)
+scale = Vector2(4.96278, 1.4174)
+shape = SubResource("CircleShape2D_jwff0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 181.0
+offset_top = 436.0
+offset_right = 360.0
+offset_bottom = 463.0
+scale = Vector2(1.83626, 1.07685)

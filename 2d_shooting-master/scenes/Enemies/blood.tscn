@@ -1,0 +1,111 @@
+[gd_scene load_steps=12 format=3 uid="uid://b2druto6ux122"]
+
+[ext_resource type="Script" path="res://scripts/blood.gd" id="1_8gfg7"]
+[ext_resource type="Texture2D" uid="uid://ygh2ixn4rq77" path="res://sprites/blood/blood1.png" id="2_bsqqe"]
+[ext_resource type="Texture2D" uid="uid://dlx5rya6fk0kq" path="res://sprites/blood/blood2.png" id="3_13l5q"]
+[ext_resource type="Texture2D" uid="uid://cju0y0xtvqge4" path="res://sprites/blood/blood3.png" id="4_v7yov"]
+[ext_resource type="Texture2D" uid="uid://ddpkq0whxbcsw" path="res://sprites/blood/blood4.png" id="5_3knrp"]
+[ext_resource type="Texture2D" uid="uid://dmlatvul4csej" path="res://sprites/blood/blood5.png" id="6_ckvqy"]
+[ext_resource type="Texture2D" uid="uid://b48qyucvjcmmp" path="res://sprites/blood/blood6.png" id="7_nhbee"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yv0j4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bsqqe")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_13l5q")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v7yov")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3knrp")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ckvqy")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nhbee")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_mcpv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blood1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ocwh6"]
+resource_name = "desaparecer"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blood1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o0ali"]
+_data = {
+"RESET": SubResource("Animation_mcpv1"),
+"desaparecer": SubResource("Animation_ocwh6")
+}
+
+[node name="Node2D" type="Node2D"]
+z_index = -1
+script = ExtResource("1_8gfg7")
+
+[node name="Blood1" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, 14)
+scale = Vector2(3.04, 2.69571)
+sprite_frames = SubResource("SpriteFrames_yv0j4")
+animation = &"1"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o0ali")
+}

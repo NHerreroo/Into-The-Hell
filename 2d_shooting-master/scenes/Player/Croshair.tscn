@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://xxu26jbjvw6q"]
+
+[ext_resource type="Script" path="res://scripts/Croshair.gd" id="1_b25em"]
+[ext_resource type="Texture2D" uid="uid://dfsfv4qo0uwg3" path="res://sprites/croshair1.png" id="2_v84hf"]
+[ext_resource type="Texture2D" uid="uid://bbxmbut15i8uf" path="res://sprites/croshair2.png" id="3_ko5r7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_odaap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_v84hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ko5r7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_b25em")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_odaap")
+frame_progress = 0.516682

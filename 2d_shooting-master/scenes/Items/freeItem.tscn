@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnphwod4wksqv"]
+
+[ext_resource type="PackedScene" uid="uid://bcp4ra6pm2jtu" path="res://scenes/Items/ItemCard.tscn" id="1_lb0mb"]
+[ext_resource type="Shader" path="res://Shaders/dissolve.gdshader" id="2_84uxv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3t3tn"]
+seed = -15
+frequency = 0.0021
+fractal_octaves = 4
+fractal_lacunarity = 1.975
+fractal_gain = 0.74
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_av4a2"]
+noise = SubResource("FastNoiseLite_3t3tn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qfiol"]
+resource_local_to_scene = true
+shader = ExtResource("2_84uxv")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.03
+shader_parameter/burn_color = Color(0, 0, 0, 1)
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_av4a2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v4qhh"]
+resource_local_to_scene = true
+shader = ExtResource("2_84uxv")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.03
+shader_parameter/burn_color = Color(0, 0, 0, 1)
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_av4a2")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 639.0
+offset_bottom = 479.0
+color = Color(0, 0, 0, 0.717647)
+
+[node name="Card" parent="." instance=ExtResource("1_lb0mb")]
+material = SubResource("ShaderMaterial_qfiol")
+layout_mode = 0
+offset_left = 84.0
+offset_top = 115.0
+offset_right = 228.0
+offset_bottom = 328.0
+
+[node name="Card2" parent="." instance=ExtResource("1_lb0mb")]
+material = SubResource("ShaderMaterial_v4qhh")
+layout_mode = 0
+offset_left = 433.0
+offset_top = 118.0
+offset_right = 577.0
+offset_bottom = 331.0

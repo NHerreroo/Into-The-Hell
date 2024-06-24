@@ -1,0 +1,166 @@
+[gd_scene load_steps=17 format=3 uid="uid://lu360wtn18oh"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_mbcfw"]
+[ext_resource type="Texture2D" uid="uid://spqelcltb1pk" path="res://sprites/player.png" id="3_trl16"]
+[ext_resource type="Texture2D" uid="uid://u5abe6dw8gjd" path="res://sprites/gun1.png" id="4_4j4m6"]
+[ext_resource type="Script" path="res://scripts/Gun.gd" id="5_1xe2e"]
+[ext_resource type="Script" path="res://scripts/dynamic_camera.gd" id="6_jyymd"]
+[ext_resource type="Texture2D" uid="uid://eyn0kc6pnyae" path="res://sprites/LigthPlayer.png" id="7_7kx7c"]
+[ext_resource type="PackedScene" uid="uid://bwh3xkgvfk2hr" path="res://scenes/Player/Hud.tscn" id="7_j2vnv"]
+[ext_resource type="Texture2D" uid="uid://cyu7ixqplct2m" path="res://sprites/Damage.png" id="8_i4kby"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxyap"]
+radius = 23.7697
+
+[sub_resource type="Animation" id="Animation_032hc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eot6s"]
+resource_name = "cam_zoom"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.11, 1.11), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ghoyo"]
+_data = {
+"RESET": SubResource("Animation_032hc"),
+"cam_zoom": SubResource("Animation_eot6s")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aiocu"]
+radius = 7.02715
+
+[sub_resource type="Animation" id="Animation_hgxam"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wnpkx"]
+resource_name = "takedamage"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ej0h"]
+_data = {
+"RESET": SubResource("Animation_hgxam"),
+"takedamage": SubResource("Animation_wnpkx")
+}
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_mbcfw")
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+scale = Vector2(0.842354, 0.414041)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 31.3979)
+shape = SubResource("CircleShape2D_qxyap")
+
+[node name="Character" type="Sprite2D" parent="."]
+texture = ExtResource("3_trl16")
+region_rect = Rect2(112, 0, 55, 44)
+
+[node name="Gun1" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.960001, 1)
+texture = ExtResource("4_4j4m6")
+offset = Vector2(29, 2)
+script = ExtResource("5_1xe2e")
+
+[node name="Muzzle" type="Marker2D" parent="Gun1"]
+position = Vector2(48.9583, -3)
+scale = Vector2(0.616833, 0.519121)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+script = ExtResource("6_jyymd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ghoyo")
+}
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1, 26)
+scale = Vector2(0.802083, 0.802083)
+energy = 0.28
+texture = ExtResource("7_7kx7c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
+scale = Vector2(2.39893, 0.903806)
+shape = SubResource("CircleShape2D_aiocu")
+
+[node name="Control" parent="." instance=ExtResource("7_j2vnv")]
+offset_left = -318.0
+offset_top = -244.0
+offset_right = -318.0
+offset_bottom = -244.0
+metadata/_edit_vertical_guides_ = [66.0]
+metadata/_edit_horizontal_guides_ = [12.0, 73.0]
+metadata/_edit_use_anchors_ = true
+
+[node name="Damage" type="CanvasLayer" parent="."]
+offset = Vector2(2.25, 0)
+transform = Transform2D(1, 0, 0, 1, 2.25, 0)
+
+[node name="Damage" type="Sprite2D" parent="Damage"]
+position = Vector2(318.664, 240.667)
+rotation = -0.00142916
+scale = Vector2(1.0073, 1.00277)
+texture = ExtResource("8_i4kby")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Damage/Damage"]
+libraries = {
+"": SubResource("AnimationLibrary_7ej0h")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

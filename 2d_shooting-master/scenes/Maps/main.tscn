@@ -1,0 +1,110 @@
+[gd_scene load_steps=14 format=3 uid="uid://cxpqx7ldl5ocf"]
+
+[ext_resource type="PackedScene" uid="uid://lu360wtn18oh" path="res://scenes/Player/player.tscn" id="1_00x1l"]
+[ext_resource type="PackedScene" uid="uid://cbte3b4xu34rd" path="res://scenes/Maps/map.tscn" id="1_otcbq"]
+[ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="3_504r1"]
+[ext_resource type="PackedScene" uid="uid://3nqv2575ej6b" path="res://scenes/Maps/start_round.tscn" id="3_il5vp"]
+[ext_resource type="Script" path="res://scripts/Timer.gd" id="3_l7r1v"]
+[ext_resource type="PackedScene" uid="uid://bybqfkrd7uhkm" path="res://scenes/Enemies/spawner.tscn" id="5_evemu"]
+[ext_resource type="PackedScene" uid="uid://xxu26jbjvw6q" path="res://scenes/Player/Croshair.tscn" id="7_w411d"]
+[ext_resource type="AudioStream" uid="uid://cwsct4l0it33l" path="res://Music/battle(provisonal).mp3" id="8_7s56o"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oy5y2"]
+vertices = PackedVector2Array(646, -162, 644, 429, -314, 430, -315, -160)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-315, -160, -314, 430, 644, 429, 646, -162)])
+
+[sub_resource type="Animation" id="Animation_yk07w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8s28y"]
+resource_name = "entry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fe8vq"]
+resource_name = "timer"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4nwdx"]
+_data = {
+"RESET": SubResource("Animation_yk07w"),
+"entry": SubResource("Animation_8s28y"),
+"timer": SubResource("Animation_fe8vq")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_otcbq")]
+z_index = -2
+position = Vector2(52, -18)
+
+[node name="Player" parent="." instance=ExtResource("1_00x1l")]
+position = Vector2(146, 138)
+scale = Vector2(1.085, 1.085)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="StartRound" parent="Player/CanvasLayer" instance=ExtResource("3_il5vp")]
+visible = false
+z_index = 1
+
+[node name="Timer" type="Label" parent="Player/CanvasLayer"]
+offset_left = 265.0
+offset_top = 12.0
+offset_right = 397.0
+offset_bottom = 38.0
+theme_override_colors/font_outline_color = Color(0.121569, 0.027451, 0.0117647, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_504r1")
+theme_override_font_sizes/font_size = 20
+text = "dasdfsdfsdf"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_l7r1v")
+
+[node name="Spawner" parent="." instance=ExtResource("5_evemu")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_oy5y2")
+constrain_avoidance = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -397.0
+offset_top = -230.0
+offset_right = 691.0
+offset_bottom = 540.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_4nwdx")
+}
+
+[node name="CROSHAIR" parent="." instance=ExtResource("7_w411d")]
+z_index = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_7s56o")
+volume_db = 10.895

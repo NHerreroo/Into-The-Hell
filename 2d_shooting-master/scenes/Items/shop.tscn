@@ -1,0 +1,125 @@
+[gd_scene load_steps=13 format=3 uid="uid://5g7ep17yy7k"]
+
+[ext_resource type="Texture2D" uid="uid://c8f3vfaf1s2rn" path="res://sprites/Icons/Cadencia_Icon.png" id="1_e4n4y"]
+[ext_resource type="Script" path="res://scenes/Items/shop.gd" id="1_wfdmb"]
+[ext_resource type="Texture2D" uid="uid://d1bkwyo7w5y8h" path="res://sprites/Icons/Damege_Icon.png" id="2_3rxii"]
+[ext_resource type="Texture2D" uid="uid://kedq4y2dr1mu" path="res://sprites/Icons/Vel_Proyectl.png" id="3_qdrn3"]
+[ext_resource type="Texture2D" uid="uid://ch5su7gtql2ps" path="res://sprites/Heart.png" id="4_dos7b"]
+[ext_resource type="Texture2D" uid="uid://xo853eivha61" path="res://sprites/Icons/Velocity_Icon.png" id="4_h5d4s"]
+[ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="8_2blcc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1m04"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e4n4y")
+}],
+"loop": true,
+"name": &"cadencia",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3rxii")
+}],
+"loop": true,
+"name": &"daño",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qdrn3")
+}],
+"loop": true,
+"name": &"proyectil",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h5d4s")
+}],
+"loop": true,
+"name": &"velocity",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dos7b")
+}],
+"loop": true,
+"name": &"vida",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_vpj7l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_y45t8"]
+resource_name = "item"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -6.765)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f30kd"]
+_data = {
+"RESET": SubResource("Animation_vpj7l"),
+"item": SubResource("Animation_y45t8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3b62"]
+size = Vector2(25, 47)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_wfdmb")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k1m04")
+animation = &"velocity"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f30kd")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 13.5)
+shape = SubResource("RectangleShape2D_d3b62")
+
+[node name="precio" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -27.0
+offset_right = 52.0
+offset_bottom = -6.0
+scale = Vector2(0.551033, 0.532252)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("8_2blcc")
+theme_override_font_sizes/font_size = 20
+text = "15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

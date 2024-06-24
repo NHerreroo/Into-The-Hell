@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://4h86tiqxdqqp"]
+
+[ext_resource type="AudioStream" uid="uid://0bits3ek01jd" path="res://Music/Kick drum sound effect - Sound & effect.mp3" id="2_i8t40"]
+
+[sub_resource type="GDScript" id="GDScript_2q05d"]
+script/source = "extends Node2D
+
+func enviarpulso():
+	Global.is_pulso_ritmo = true
+	await get_tree().create_timer(0.0001).timeout
+	Global.is_pulso_ritmo = false
+
+func _ready():
+	await get_tree().create_timer(5).timeout
+	while Global.is_playing == true: 
+		await get_tree().create_timer(Global.tempo).timeout
+		$Blackout.play()
+		enviarpulso()
+		
+
+		
+"
+
+[node name="Music_Controller" type="Node2D"]
+script = SubResource("GDScript_2q05d")
+
+[node name="Blackout" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_i8t40")

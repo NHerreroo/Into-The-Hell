@@ -1,0 +1,288 @@
+[gd_scene load_steps=24 format=3 uid="uid://bwh3xkgvfk2hr"]
+
+[ext_resource type="Script" path="res://scripts/Hud.gd" id="1_c055n"]
+[ext_resource type="Texture2D" uid="uid://d1bkwyo7w5y8h" path="res://sprites/Icons/Damege_Icon.png" id="1_ev1xn"]
+[ext_resource type="Texture2D" uid="uid://c8f3vfaf1s2rn" path="res://sprites/Icons/Cadencia_Icon.png" id="2_lrcmp"]
+[ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="3_m6xqs"]
+[ext_resource type="Texture2D" uid="uid://xo853eivha61" path="res://sprites/Icons/Velocity_Icon.png" id="3_qw2ur"]
+[ext_resource type="Texture2D" uid="uid://kedq4y2dr1mu" path="res://sprites/Icons/Vel_Proyectl.png" id="5_eila1"]
+[ext_resource type="Texture2D" uid="uid://b1634oxk8ehpf" path="res://sprites/Icons/reload_icon.png" id="6_vehoj"]
+[ext_resource type="Texture2D" uid="uid://vvoi1iifg3a2" path="res://sprites/Icons/bulletsize.png" id="7_nmdrt"]
+[ext_resource type="Texture2D" uid="uid://fmuhfl3jhjbk" path="res://sprites/penny.png" id="8_80r0i"]
+[ext_resource type="Texture2D" uid="uid://cfhlv36f365ek" path="res://sprites/Hearts/1.png" id="9_d0deq"]
+[ext_resource type="Texture2D" uid="uid://daqct6wrhix7o" path="res://sprites/Hearts/10.png" id="10_7h1u1"]
+[ext_resource type="Texture2D" uid="uid://x4gh8pwtrryo" path="res://sprites/Hearts/11.png" id="11_rrl4n"]
+[ext_resource type="Texture2D" uid="uid://dwsm21opuy34q" path="res://sprites/Hearts/2.png" id="12_whwfl"]
+[ext_resource type="Texture2D" uid="uid://d4bev5uxvgv68" path="res://sprites/Hearts/3.png" id="13_bmolk"]
+[ext_resource type="Texture2D" uid="uid://c0emta265piix" path="res://sprites/Hearts/4.png" id="14_xvf1v"]
+[ext_resource type="Texture2D" uid="uid://cy0h7eidg0hwr" path="res://sprites/Hearts/5.png" id="15_v8app"]
+[ext_resource type="Texture2D" uid="uid://c4dsgakhbii7f" path="res://sprites/Hearts/6.png" id="16_6p16t"]
+[ext_resource type="Texture2D" uid="uid://doowd22mqm2wn" path="res://sprites/Hearts/7.png" id="17_nycfp"]
+[ext_resource type="Texture2D" uid="uid://buru4oasenjeg" path="res://sprites/Hearts/8.png" id="18_pc0h7"]
+[ext_resource type="Texture2D" uid="uid://c4qn8vfeh4ale" path="res://sprites/Hearts/9.png" id="19_p0ntf"]
+[ext_resource type="Texture2D" uid="uid://bxw2csvrrqdfh" path="res://sprites/Icons/bullets_icon.png" id="21_50hia"]
+[ext_resource type="Texture2D" uid="uid://blcyvd6j2kjxc" path="res://sprites/Icons/icongamblin.png" id="22_uecdt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ed4sx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_d0deq")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_7h1u1")
+}],
+"loop": true,
+"name": &"10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_rrl4n")
+}],
+"loop": true,
+"name": &"11",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_whwfl")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_bmolk")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_xvf1v")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_v8app")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_6p16t")
+}],
+"loop": true,
+"name": &"6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_nycfp")
+}],
+"loop": true,
+"name": &"7",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_pc0h7")
+}],
+"loop": true,
+"name": &"8",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_p0ntf")
+}],
+"loop": true,
+"name": &"9",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 11.0
+offset_right = 1.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c055n")
+metadata/_edit_vertical_guides_ = [23.0]
+metadata/_edit_horizontal_guides_ = [12.0, 73.0, 54.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BulletsIcon" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(537, 442)
+scale = Vector2(1.93519, 1.93519)
+texture = ExtResource("21_50hia")
+
+[node name="CadenciaIcon" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(27.5625, 222.673)
+scale = Vector2(2.32031, 2.09977)
+texture = ExtResource("2_lrcmp")
+
+[node name="VelocityIcon" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(30.125, 267)
+scale = Vector2(2.0625, 2.02694)
+texture = ExtResource("3_qw2ur")
+
+[node name="DamegeIcon" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(34.125, 183)
+scale = Vector2(2.25, 2.25)
+texture = ExtResource("1_ev1xn")
+
+[node name="VelProyectl" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(33, 307)
+scale = Vector2(2.0625, 2.0625)
+texture = ExtResource("5_eila1")
+
+[node name="Recarga3" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(33, 346)
+scale = Vector2(1.86728, 1.79069)
+texture = ExtResource("7_nmdrt")
+
+[node name="Recarga" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(32, 388)
+scale = Vector2(1.61111, 1.38889)
+texture = ExtResource("6_vehoj")
+
+[node name="balasactuales" type="Label" parent="CanvasLayer"]
+offset_left = 556.0
+offset_top = 423.0
+offset_right = 652.0
+offset_bottom = 444.0
+theme_override_colors/font_outline_color = Color(0.121569, 0.027451, 0.0117647, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_m6xqs")
+theme_override_font_sizes/font_size = 20
+text = "999999"
+
+[node name="valas max" type="Label" parent="CanvasLayer"]
+offset_left = 559.0
+offset_top = 444.0
+offset_right = 655.0
+offset_bottom = 465.0
+rotation = 0.000853211
+theme_override_colors/font_outline_color = Color(0.121569, 0.027451, 0.0117647, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_m6xqs")
+theme_override_font_sizes/font_size = 20
+text = "/10"
+
+[node name="Cadencia_Label" type="Label" parent="CanvasLayer"]
+offset_left = 53.125
+offset_top = 214.0
+offset_right = 149.125
+offset_bottom = 235.0
+theme_override_colors/font_outline_color = Color(0.121569, 0.027451, 0.0117647, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_m6xqs")
+theme_override_font_sizes/font_size = 20
+text = "cadencia"
+
+[node name="Velocidad_lab" type="Label" parent="CanvasLayer"]
+offset_left = 53.125
+offset_top = 257.0
+offset_right = 221.125
+offset_bottom = 278.0
+theme_override_colors/font_outline_color = Color(0.121569, 0.027451, 0.0117647, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_m6xqs")
+theme_override_font_sizes/font_size = 20
+text = "vel"
+
+[node name="Daño_label" type="Label" parent="CanvasLayer"]
+offset_left = 53.125
+offset_top = 173.0
+offset_right = 149.125
+offset_bottom = 194.0
+theme_override_colors/font_outline_color = Color(0.121569, 0.027451, 0.0117647, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_m6xqs")
+theme_override_font_sizes/font_size = 20
+text = "daño"
+
+[node name="size" type="Label" parent="CanvasLayer"]
+offset_left = 54.0
+offset_top = 337.0
+offset_right = 222.0
+offset_bottom = 358.0
+theme_override_colors/font_outline_color = Color(0.121569, 0.027451, 0.0117647, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_m6xqs")
+theme_override_font_sizes/font_size = 20
+text = "bulletsize"
+
+[node name="Velocidad_bala" type="Label" parent="CanvasLayer"]
+offset_left = 53.0
+offset_top = 294.0
+offset_right = 221.0
+offset_bottom = 315.0
+theme_override_colors/font_outline_color = Color(0.121569, 0.027451, 0.0117647, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_m6xqs")
+theme_override_font_sizes/font_size = 20
+text = "vel_bala"
+
+[node name="Recarga2" type="Label" parent="CanvasLayer"]
+offset_left = 57.0
+offset_top = 380.0
+offset_right = 225.0
+offset_bottom = 401.0
+theme_override_colors/font_outline_color = Color(0.121569, 0.027451, 0.0117647, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_m6xqs")
+theme_override_font_sizes/font_size = 20
+text = "Recarga"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(463, 31)
+scale = Vector2(1.32259, 1.29721)
+texture = ExtResource("8_80r0i")
+
+[node name="money" type="Label" parent="CanvasLayer/Sprite2D"]
+offset_left = 35.5365
+offset_top = -7.70886
+offset_right = 299.536
+offset_bottom = 13.2911
+theme_override_colors/font_outline_color = Color(0.121569, 0.027451, 0.0117647, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_m6xqs")
+theme_override_font_sizes/font_size = 20
+
+[node name="Container2" type="Container" parent="CanvasLayer"]
+offset_left = 16.0
+offset_top = 3.0
+offset_right = 117.0
+offset_bottom = 52.0
+scale = Vector2(2.5, 2.5)
+
+[node name="Heart1" type="AnimatedSprite2D" parent="CanvasLayer/Container2"]
+position = Vector2(42.8, 12.4)
+sprite_frames = SubResource("SpriteFrames_ed4sx")
+animation = &"1"
+
+[node name="Icongamblin" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(40, 448)
+scale = Vector2(1.35294, 1.36364)
+texture = ExtResource("22_uecdt")

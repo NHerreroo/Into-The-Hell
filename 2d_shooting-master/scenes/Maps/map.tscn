@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbte3b4xu34rd"]
+
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_jcrxv"]
+[ext_resource type="Texture2D" uid="uid://dhgjj0qqsi5cd" path="res://sprites/escenario.png" id="1_qlnmk"]
+[ext_resource type="Texture2D" uid="uid://dkdunmlfjvyx0" path="res://sprites/torch1.png" id="3_u2nsv"]
+[ext_resource type="Texture2D" uid="uid://djs5gxq4mc2tv" path="res://sprites/torch2.png" id="4_abh0y"]
+[ext_resource type="Texture2D" uid="uid://dj3ojcplyeufi" path="res://sprites/torch3.png" id="5_koqsn"]
+[ext_resource type="Texture2D" uid="uid://dqry8s0cug3s1" path="res://sprites/GlobalLight.png" id="6_ylx40"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oe1xm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u2nsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_abh0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_koqsn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Map" type="StaticBody2D" groups=["wall"]]
+scale = Vector2(0.354157, 0.44)
+script = ExtResource("1_jcrxv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -3544.0
+offset_top = -1948.0
+offset_right = 3875.0
+offset_bottom = 2269.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(321.5, 240.5)
+scale = Vector2(6.45, 4.79)
+texture = ExtResource("1_qlnmk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-1056.03, -336.364, 1682.87, -331.818, 1685, 1027, -1050, 1033, -1056.03, -331.818, -2230.54, 95.4545, -2572.2, 2011.36, 3366.64, 2075, 2633.31, -943.182, 1312, -783, -685, -724, -2274.98, -1013.64, -1669.43, -77.2727)
+
+[node name="Torch" type="AnimatedSprite2D" parent="."]
+position = Vector2(-693.725, -450)
+scale = Vector2(2.66919, 2.16182)
+sprite_frames = SubResource("SpriteFrames_oe1xm")
+frame_progress = 0.619345
+
+[node name="PointLight2D" type="PointLight2D" parent="Torch"]
+position = Vector2(-0.330627, 12.6156)
+scale = Vector2(0.554701, 0.609196)
+color = Color(0.784314, 0.482353, 0.223529, 1)
+energy = 2.68
+texture = ExtResource("6_ylx40")
+
+[node name="Torch2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1377.92, -450)
+scale = Vector2(2.66919, 2.16182)
+sprite_frames = SubResource("SpriteFrames_oe1xm")
+frame_progress = 0.0696001
+
+[node name="PointLight2D" type="PointLight2D" parent="Torch2"]
+position = Vector2(-0.330627, 12.6156)
+scale = Vector2(0.554701, 0.609196)
+color = Color(0.784314, 0.482353, 0.223529, 1)
+energy = 2.68
+texture = ExtResource("6_ylx40")
+
+[node name="Torch3" type="AnimatedSprite2D" parent="."]
+position = Vector2(352.951, -450)
+scale = Vector2(2.66919, 2.16182)
+sprite_frames = SubResource("SpriteFrames_oe1xm")
+frame_progress = 0.0696001
+
+[node name="PointLight2D" type="PointLight2D" parent="Torch3"]
+position = Vector2(-0.330627, 12.6156)
+scale = Vector2(0.554701, 0.609196)
+color = Color(0.784314, 0.482353, 0.223529, 1)
+energy = 2.68
+texture = ExtResource("6_ylx40")

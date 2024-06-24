@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcp4ra6pm2jtu"]
+
+[ext_resource type="Texture2D" uid="uid://ba64rora258qb" path="res://sprites/CardTemplate.png" id="1_dbwhd"]
+[ext_resource type="Script" path="res://scenes/Items/ItemCard.gd" id="1_flpvx"]
+[ext_resource type="Shader" path="res://scenes/Items/dissolve.gdshader" id="1_tvdl7"]
+[ext_resource type="Shader" path="res://scenes/Items/fake_3D.gdshader" id="4_blqn5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5bot4"]
+shader = ExtResource("1_tvdl7")
+shader_parameter/dissolve_value = null
+shader_parameter/burn_size = null
+shader_parameter/burn_color = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lhs0a"]
+shader = ExtResource("4_blqn5")
+shader_parameter/rect_size = null
+shader_parameter/fov = 1.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl4ex"]
+size = Vector2(127, 198)
+
+[node name="Card" type="Button"]
+material = SubResource("ShaderMaterial_5bot4")
+offset_right = 144.0
+offset_bottom = 213.0
+pivot_offset = Vector2(72, 106)
+script = ExtResource("1_flpvx")
+
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.317647)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 148.0
+offset_bottom = 220.0
+texture = ExtResource("1_dbwhd")
+
+[node name="CardTexture" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_lhs0a")
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 214.0
+texture = ExtResource("1_dbwhd")
+
+[node name="DestroyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestroyArea"]
+position = Vector2(72.5, 106)
+shape = SubResource("RectangleShape2D_yl4ex")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

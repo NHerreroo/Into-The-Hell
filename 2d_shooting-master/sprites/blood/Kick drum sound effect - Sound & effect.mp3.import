@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://udmr8yck3fqq"
+path="res://.godot/imported/Kick drum sound effect - Sound & effect.mp3-2a46dbaea4672b6130176404b246bcd4.mp3str"
+
+[deps]
+
+source_file="res://sprites/blood/Kick drum sound effect - Sound & effect.mp3"
+dest_files=["res://.godot/imported/Kick drum sound effect - Sound & effect.mp3-2a46dbaea4672b6130176404b246bcd4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

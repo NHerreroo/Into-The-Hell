@@ -1,0 +1,455 @@
+[gd_scene load_steps=47 format=3 uid="uid://b38rabr8dphfs"]
+
+[ext_resource type="Texture2D" uid="uid://lhmirvskgjwh" path="res://sprites/lobby.png" id="1_f5nyi"]
+[ext_resource type="Script" path="res://scripts/lobby.gd" id="1_x7amr"]
+[ext_resource type="Texture2D" uid="uid://bbfkjdnf7cwbs" path="res://sprites/casino.png" id="2_5ieyj"]
+[ext_resource type="PackedScene" uid="uid://lu360wtn18oh" path="res://scenes/Player/player.tscn" id="2_snfch"]
+[ext_resource type="Texture2D" uid="uid://dkdunmlfjvyx0" path="res://sprites/torch1.png" id="3_7icpl"]
+[ext_resource type="Texture2D" uid="uid://dj3ojcplyeufi" path="res://sprites/torch3.png" id="4_spb3w"]
+[ext_resource type="PackedScene" uid="uid://13bvqe3mewvs" path="res://scenes/Maps/StartRun.tscn" id="4_xxy6m"]
+[ext_resource type="Texture2D" uid="uid://djs5gxq4mc2tv" path="res://sprites/torch2.png" id="5_7hrft"]
+[ext_resource type="PackedScene" uid="uid://xxu26jbjvw6q" path="res://scenes/Player/Croshair.tscn" id="5_8fptf"]
+[ext_resource type="Texture2D" uid="uid://dqry8s0cug3s1" path="res://sprites/GlobalLight.png" id="6_nfn0f"]
+[ext_resource type="Texture2D" uid="uid://gx8c3m2ub7dr" path="res://sprites/controls.png" id="8_2sq60"]
+[ext_resource type="Texture2D" uid="uid://gjmwnq62lgqs" path="res://sprites/stranger1.png" id="8_w2e7t"]
+[ext_resource type="Texture2D" uid="uid://c3k2h00ylwv3k" path="res://sprites/barman1.png" id="8_xbg3c"]
+[ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="9_75lqi"]
+[ext_resource type="Texture2D" uid="uid://d4oyec7w3t7e" path="res://sprites/stranger3.png" id="9_enp8a"]
+[ext_resource type="Texture2D" uid="uid://svllrju504t8" path="res://sprites/barman2.png" id="9_et0yg"]
+[ext_resource type="AudioStream" uid="uid://c4froj31o13u4" path="res://Music/shop.mp3" id="10_mbacs"]
+[ext_resource type="Texture2D" uid="uid://bjwo8dfbl7u5" path="res://sprites/stranger2.png" id="10_tn1f8"]
+[ext_resource type="PackedScene" uid="uid://bnphwod4wksqv" path="res://scenes/Items/freeItem.tscn" id="10_ypums"]
+[ext_resource type="Texture2D" uid="uid://nnb0ppyj3tqb" path="res://sprites/casindoor1.png" id="12_6o1w3"]
+[ext_resource type="Texture2D" uid="uid://0e81njy5buo2" path="res://sprites/casindoor2.png" id="13_4idwu"]
+[ext_resource type="Texture2D" uid="uid://2jq03jlnp0xr" path="res://sprites/mauina.png" id="14_4rmp1"]
+[ext_resource type="Texture2D" uid="uid://c2xmei74tphxa" path="res://sprites/rota1.png" id="15_6h42u"]
+[ext_resource type="Texture2D" uid="uid://bpbm5u4ydqb25" path="res://sprites/maquina3.png" id="15_28wrw"]
+[ext_resource type="Texture2D" uid="uid://bdkfj861t1wkd" path="res://sprites/maquina4.png" id="16_kjg6o"]
+[ext_resource type="Texture2D" uid="uid://c6vbgnmmrwt34" path="res://sprites/rota2.png" id="16_y82vr"]
+[ext_resource type="Texture2D" uid="uid://drcyvqb4hiv1v" path="res://sprites/maquina2.png" id="17_ubywb"]
+[ext_resource type="Texture2D" uid="uid://4bjxxco32yfb" path="res://sprites/rota3.png" id="17_uiyq2"]
+[ext_resource type="Texture2D" uid="uid://bk25cch3ts6q7" path="res://sprites/casindoor1cerrada1.png" id="18_uyoit"]
+[ext_resource type="Texture2D" uid="uid://dtvu2xpejyhec" path="res://sprites/casindoor1cerrada2.png" id="19_x5q6i"]
+[ext_resource type="PackedScene" uid="uid://dtahamr86oofp" path="res://scenes/Items/casinocard.tscn" id="22_p020b"]
+[ext_resource type="PackedScene" uid="uid://5g7ep17yy7k" path="res://scenes/Items/shop.tscn" id="28_h6dwb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n2vo0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7icpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_spb3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7hrft")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jc0or"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xbg3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_et0yg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1yvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_w2e7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w2e7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w2e7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w2e7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_enp8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tn1f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tn1f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tn1f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tn1f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w2e7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w2e7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tn1f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tn1f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_enp8a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c5gjl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_ubywb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_28wrw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_kjg6o")
+}],
+"loop": true,
+"name": &"active",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_4rmp1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_6h42u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_y82vr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_uiyq2")
+}],
+"loop": true,
+"name": &"quemada",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g70pm"]
+size = Vector2(155.67, 126.856)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv8gx"]
+size = Vector2(60.6354, 57.7843)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xvb8a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_uyoit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_x5q6i")
+}],
+"loop": true,
+"name": &"cerrada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_6o1w3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4idwu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmqll"]
+size = Vector2(90.9533, 43.8024)
+
+[sub_resource type="Animation" id="Animation_ftnsk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cv0hc"]
+resource_name = "entry"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hi26m"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c03mt"]
+_data = {
+"RESET": SubResource("Animation_ftnsk"),
+"entry": SubResource("Animation_cv0hc"),
+"out": SubResource("Animation_hi26m")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0o3b"]
+size = Vector2(83.1264, 44.3112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1w3hi"]
+size = Vector2(76.9603, 61.7663)
+
+[node name="Lobby" type="StaticBody2D" groups=["wall"]]
+position = Vector2(-6, 8)
+scale = Vector2(1.71517, 1.7579)
+script = ExtResource("1_x7amr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -508.405
+offset_top = -474.43
+offset_right = 994.595
+offset_bottom = 1028.57
+color = Color(0, 0, 0, 1)
+
+[node name="Casino" type="Sprite2D" parent="."]
+position = Vector2(221.552, -154.161)
+texture = ExtResource("2_5ieyj")
+
+[node name="Lobby" type="Sprite2D" parent="."]
+position = Vector2(324.166, 214.46)
+scale = Vector2(1.30389, 1.36242)
+texture = ExtResource("1_f5nyi")
+
+[node name="torch" type="AnimatedSprite2D" parent="Lobby"]
+position = Vector2(-142.193, -123.173)
+scale = Vector2(0.546578, 0.491302)
+sprite_frames = SubResource("SpriteFrames_n2vo0")
+frame_progress = 0.17664
+
+[node name="PointLight2D" type="PointLight2D" parent="Lobby/torch"]
+position = Vector2(0.818115, -0.849823)
+scale = Vector2(0.452704, 0.338881)
+color = Color(0.866667, 0.521569, 0.2, 1)
+energy = 1.72
+texture = ExtResource("6_nfn0f")
+
+[node name="torch4" type="AnimatedSprite2D" parent="Lobby"]
+position = Vector2(170.811, -42.5885)
+scale = Vector2(0.546578, 0.491302)
+sprite_frames = SubResource("SpriteFrames_n2vo0")
+frame_progress = 0.0247321
+
+[node name="PointLight2D" type="PointLight2D" parent="Lobby/torch4"]
+position = Vector2(0.818115, -0.849823)
+scale = Vector2(0.452704, 0.338881)
+color = Color(0.866667, 0.521569, 0.2, 1)
+energy = 1.72
+texture = ExtResource("6_nfn0f")
+
+[node name="torch5" type="AnimatedSprite2D" parent="Lobby"]
+position = Vector2(311.663, -43.4235)
+scale = Vector2(0.546578, 0.491302)
+sprite_frames = SubResource("SpriteFrames_n2vo0")
+frame_progress = 0.0247321
+
+[node name="PointLight2D" type="PointLight2D" parent="Lobby/torch5"]
+position = Vector2(0.818115, -0.849823)
+scale = Vector2(0.452704, 0.338881)
+color = Color(0.866667, 0.521569, 0.2, 1)
+energy = 1.72
+texture = ExtResource("6_nfn0f")
+
+[node name="torch3" type="AnimatedSprite2D" parent="Lobby"]
+position = Vector2(-26.8288, -121.92)
+scale = Vector2(0.546578, 0.491302)
+sprite_frames = SubResource("SpriteFrames_n2vo0")
+frame_progress = 0.858541
+
+[node name="PointLight2D" type="PointLight2D" parent="Lobby/torch3"]
+position = Vector2(0.818115, -0.849823)
+scale = Vector2(0.452704, 0.338881)
+color = Color(0.866667, 0.521569, 0.2, 1)
+energy = 1.72
+texture = ExtResource("6_nfn0f")
+
+[node name="bar" type="AnimatedSprite2D" parent="."]
+position = Vector2(29.1516, 75.6585)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_jc0or")
+animation = &"idle"
+
+[node name="Controls" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.529412)
+position = Vector2(239.626, 182.604)
+scale = Vector2(1.32864, 1.33073)
+texture = ExtResource("8_2sq60")
+
+[node name="round" type="Label" parent="."]
+offset_left = 211.058
+offset_top = 277.604
+offset_right = 273.058
+offset_bottom = 303.604
+theme_override_colors/font_color = Color(0.356863, 0.160784, 0.145098, 1)
+theme_override_fonts/font = ExtResource("9_75lqi")
+theme_override_font_sizes/font_size = 20
+text = "room 1"
+
+[node name="stranger" type="AnimatedSprite2D" parent="."]
+position = Vector2(171.412, -245.748)
+sprite_frames = SubResource("SpriteFrames_w1yvv")
+frame_progress = 0.256946
+
+[node name="Mauina" type="AnimatedSprite2D" parent="."]
+position = Vector2(241.375, -233.802)
+sprite_frames = SubResource("SpriteFrames_c5gjl")
+animation = &"active"
+frame_progress = 0.110395
+
+[node name="casinofllor" type="Area2D" parent="Mauina"]
+position = Vector2(-241.375, 233.802)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mauina/casinofllor"]
+position = Vector2(223.01, -160.134)
+shape = SubResource("RectangleShape2D_g70pm")
+
+[node name="maquinacoll" type="Area2D" parent="Mauina"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mauina/maquinacoll"]
+position = Vector2(5.24728, 18.8921)
+shape = SubResource("RectangleShape2D_xv8gx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-144.592, 0)
+polygon = PackedVector2Array(-88, 137, -64, 149, 13.9928, 80.7782, 15.1588, 83.0536, 14.5757, 151.317, 256.534, 151.317, 256.534, 80.7782, 326.498, 80.7782, 326.498, 7.96405, 326.498, -66.5567, 288.018, -66.5567, 288.018, -224.7, 372.558, -224.7, 372.558, -202.514, 409.289, -202.514, 409.872, -224.131, 443.688, -224.131, 443.688, -65.9878, 401.126, -65.9878, 401.126, 7.39519, 401.126, 81.9159, 601.69, 81.9159, 601.69, 146.197, 671.653, 146.197, 671.653, 192.844, 883.877, 192.844, 883.877, 245.748, 672.236, 245.748, 672.236, 283.861, 434.942, 283.861, 434.942, 386.256, 339.908, 386.256, 339.908, 283.861, 18.657, 283.861, 18.657, 151.886, 14.5757, 83.6225, -82, 151, -92.7023, 263.951, -6, 413, 220, 452, 432, 473, 753, 404, 859.973, 391.945, 1020.31, 348.712, 1033.72, 167.245, 934.601, 93.2931, 720, 29, 670, -80, 472.256, -291.257, 279.273, -286.137, 50, -86, -20.4062, -73.9519, -89, -64, -100, 5, -76, 59)
+
+[node name="puerta casino" type="AnimatedSprite2D" parent="."]
+position = Vector2(219.22, 47.2154)
+scale = Vector2(1.62846, 1.52943)
+sprite_frames = SubResource("SpriteFrames_xvb8a")
+frame_progress = 0.901153
+
+[node name="Player" parent="." instance=ExtResource("2_snfch")]
+position = Vector2(253.619, 173.502)
+scale = Vector2(0.627726, 0.619458)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="CROSHAIR" parent="Player/CanvasLayer" instance=ExtResource("5_8fptf")]
+z_index = 2
+scale = Vector2(1.03517, 1.00205)
+
+[node name="casinocard" parent="Player/CanvasLayer" instance=ExtResource("22_p020b")]
+visible = false
+
+[node name="StartRun" parent="Player/CanvasLayer" instance=ExtResource("4_xxy6m")]
+visible = false
+offset_left = -5.00003
+offset_top = -0.999969
+offset_right = -5.0
+offset_bottom = -0.999969
+scale = Vector2(1.02683, 1.05508)
+
+[node name="FreeItem" parent="Player/CanvasLayer" instance=ExtResource("10_ypums")]
+visible = false
+
+[node name="StartRunDrooe" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartRunDrooe"]
+position = Vector2(242.542, 364.071)
+shape = SubResource("RectangleShape2D_pmqll")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+z_index = 2
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(18.2458, 11.9735)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect2"]
+libraries = {
+"": SubResource("AnimationLibrary_c03mt")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_mbacs")
+volume_db = 8.914
+autoplay = true
+attenuation = 0.732044
+panning_strength = 0.0
+
+[node name="Shop" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shop"]
+position = Vector2(396.294, 138.832)
+shape = SubResource("RectangleShape2D_y0o3b")
+
+[node name="puertacasinocollision" type="CollisionShape2D" parent="."]
+position = Vector2(219.22, 50.6286)
+shape = SubResource("RectangleShape2D_1w3hi")
+
+[node name="shopitem1" parent="." instance=ExtResource("28_h6dwb")]
+position = Vector2(30.9007, 110.928)
+scale = Vector2(1.375, 1.375)
+
+[node name="shopitem2" parent="." instance=ExtResource("28_h6dwb")]
+position = Vector2(-25.0704, 110.928)
+scale = Vector2(1.375, 1.375)
+
+[node name="shopitem3" parent="." instance=ExtResource("28_h6dwb")]
+position = Vector2(-82.2076, 111.497)
+scale = Vector2(1.375, 1.375)
+
+[connection signal="area_entered" from="Mauina/casinofllor" to="." method="_on_casinofllor_area_entered"]
+[connection signal="area_exited" from="Mauina/casinofllor" to="." method="_on_casinofllor_area_exited"]
+[connection signal="area_entered" from="Mauina/maquinacoll" to="." method="_on_maquinacoll_area_entered"]
+[connection signal="area_entered" from="StartRunDrooe" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Shop" to="." method="_on_shop_area_entered"]
+[connection signal="area_exited" from="Shop" to="." method="_on_shop_area_exited"]
