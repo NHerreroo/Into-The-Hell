@@ -16,7 +16,7 @@ func _ready():
 	Global.bullet_sizeY = 0.55
 	Global.recarga = 2
 	Global.piercing = false
-
+	Global.secondphaseboss = false 
 	Global.shop = false
 	Global.max_bulelts = 10
 	Global.current_bullets = 10

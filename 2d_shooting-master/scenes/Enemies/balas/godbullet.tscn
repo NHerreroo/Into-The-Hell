@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=3 uid="uid://ct66h8tyfej7k"]
+
+[ext_resource type="Script" path="res://scenes/Enemies/balas/godbullet.gd" id="1_2gq5o"]
+[ext_resource type="Texture2D" uid="uid://ben6wf7665gay" path="res://sprites/Enemies/God/god atack.png" id="1_4ttut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjlfu"]
+size = Vector2(1491.4, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eexax"]
+size = Vector2(32.4097, 1199.01)
+
+[sub_resource type="Animation" id="Animation_ktjrf"]
+resource_name = "atack1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fmcxh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2lt2o"]
+resource_name = "atack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.799361, 0.799361]
+}
+
+[sub_resource type="Animation" id="Animation_37xuj"]
+resource_name = "atack3"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.59872]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wmx6e"]
+_data = {
+"RESET": SubResource("Animation_fmcxh"),
+"atack": SubResource("Animation_2lt2o"),
+"atack1": SubResource("Animation_ktjrf"),
+"atack3": SubResource("Animation_37xuj")
+}
+
+[node name="godbullet" type="Area2D" groups=["balaenemy"]]
+scale = Vector2(1.66555, 1.66555)
+script = ExtResource("1_2gq5o")
+
+[node name="GodAtack" type="Sprite2D" parent="."]
+position = Vector2(-7.62939e-06, 1.52588e-05)
+scale = Vector2(1.77939, 1.77939)
+texture = ExtResource("1_4ttut")
+offset = Vector2(-34.4703, 54.611)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.600403, -0.600403)
+shape = SubResource("RectangleShape2D_wjlfu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0.600404, -1.80121)
+shape = SubResource("RectangleShape2D_eexax")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wmx6e")
+}

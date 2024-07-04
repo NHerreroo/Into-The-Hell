@@ -18,8 +18,10 @@ func _ready():
 	Global.itemselected = false
 	Global.itemcasino = false
 	Global.death = false
-	$round.text = "ROOM " + str(Global.number_of_floor)
-	
+	if Global.number_of_floor == 5:
+		$round.text = "BOSS"
+	else:
+		$round.text = "ROOM " + str(Global.number_of_floor)
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("player"):
 		if Global.run_start == true:

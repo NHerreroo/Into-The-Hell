@@ -1,0 +1,157 @@
+[gd_scene load_steps=12 format=3 uid="uid://cplxodob0s7f0"]
+
+[ext_resource type="Script" path="res://scenes/Enemies/god_eye_boss.gd" id="1_3k1yq"]
+[ext_resource type="Texture2D" uid="uid://cf2js2qealbi5" path="res://sprites/Enemies/God/godeye.png" id="1_68yph"]
+[ext_resource type="Texture2D" uid="uid://bt6fwmxilkiyp" path="res://sprites/Enemies/God/godwing.png" id="2_he2w2"]
+[ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="4_5h2nm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oeki7"]
+radius = 18.6028
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qq8a1"]
+radius = 20.0402
+
+[sub_resource type="Animation" id="Animation_nu14y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Godeye:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Godeye/alaizq:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Godeye/alader:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_l3eoh"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Godeye:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 23.48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Godeye/alaizq:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.349066]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Godeye/alader:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.349066]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cre37"]
+_data = {
+"RESET": SubResource("Animation_nu14y"),
+"idle": SubResource("Animation_l3eoh")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0qqd"]
+bg_color = Color(0.239216, 0.239216, 0.239216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l07r3"]
+bg_color = Color(0, 0.611765, 0.305882, 1)
+
+[node name="GodEye" type="CharacterBody2D" groups=["mobs"]]
+script = ExtResource("1_3k1yq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.34416, 1.34416)
+shape = SubResource("CircleShape2D_oeki7")
+
+[node name="Godeye" type="Sprite2D" parent="."]
+scale = Vector2(1.34416, 1.34416)
+texture = ExtResource("1_68yph")
+offset = Vector2(-0.743962, -3.71981)
+
+[node name="Area2D" type="Area2D" parent="Godeye"]
+position = Vector2(0, -2.70288)
+scale = Vector2(0.743961, 0.743961)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Godeye/Area2D"]
+position = Vector2(1, 4)
+shape = SubResource("CircleShape2D_qq8a1")
+
+[node name="alader" type="Sprite2D" parent="Godeye"]
+z_index = -1
+texture = ExtResource("2_he2w2")
+offset = Vector2(1.97388, 14.0091)
+flip_h = true
+
+[node name="alaizq" type="Sprite2D" parent="Godeye"]
+z_index = -1
+texture = ExtResource("2_he2w2")
+offset = Vector2(-1.48792, 14.8792)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cre37")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 202.0
+offset_top = 439.0
+offset_right = 478.0
+offset_bottom = 466.0
+size_flags_stretch_ratio = 0.0
+theme_override_constants/outline_size = -1
+theme_override_fonts/font = ExtResource("4_5h2nm")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/background = SubResource("StyleBoxFlat_q0qqd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_l07r3")
+value = 31.51

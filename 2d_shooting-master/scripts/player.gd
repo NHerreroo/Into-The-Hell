@@ -24,15 +24,24 @@ func _ready():
 	$Damage/Damage.visible = false
 	
 func _process(delta):
+	if Global.bossdefeat == true:
+		$Flecha.visible = true
+	else:
+		$Flecha.visible = false
+	$Flecha.look_at(Vector2(140,94))
 	if Global.health >= 11:
+		#Global.godbattle = false
 		Global.death = true
 		$Death.visible = true
 		Engine.time_scale = 0.5
 		$Damage/death2.visible = true
 		$Damage/Damage/AnimationPlayer.play("fadedeath")
+		$AudioStreamPlayer2D.play()
 		await get_tree().create_timer(2).timeout
 		Engine.time_scale = 1
 		get_tree().change_scene_to_file("res://scenes/Player/dead.tscn")
+		
+		
 		
 	elif Global.health <= 11:
 		$Death.visible = false
@@ -96,6 +105,9 @@ func _on_area_2d_body_entered(body):
 
 
 func _on_area_2d_area_entered(area):
+	if area.is_in_group("limits"):
+		$".".position = Vector2(146, 138)
+	
 	if area.is_in_group("balaenemy"):
 		if damagecoldown == false:
 			damagecoldown = true

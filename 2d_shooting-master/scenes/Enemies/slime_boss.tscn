@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b07k1xppef1ao"]
+[gd_scene load_steps=17 format=3 uid="uid://b07k1xppef1ao"]
 
 [ext_resource type="Script" path="res://scripts/slime_boss.gd" id="1_j7rxp"]
 [ext_resource type="Texture2D" uid="uid://b6nn7lw420ns7" path="res://sprites/Enemies/bossslimedamage.png" id="2_hif4r"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://djtann4rd7mry" path="res://sprites/Enemies/bossslimejump5.png" id="7_tjyls"]
 [ext_resource type="Texture2D" uid="uid://rgbmdnim1axf" path="res://sprites/Enemies/bossslimejump6.png" id="8_6gs2i"]
 [ext_resource type="Texture2D" uid="uid://cfdims7slndyt" path="res://sprites/bullet1.png" id="9_glljm"]
+[ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="11_lqoqj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1mtlq"]
 animations = [{
@@ -64,6 +65,12 @@ radius = 14.9676
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jwff0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rutb8"]
+bg_color = Color(0.24, 0.24, 0.24, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u44kj"]
+bg_color = Color(0, 0.611189, 0.306043, 1)
+
 [node name="SlimeBoss" type="CharacterBody2D" groups=["mobs"]]
 scale = Vector2(2.34872, 2.2875)
 script = ExtResource("1_j7rxp")
@@ -103,3 +110,8 @@ offset_top = 436.0
 offset_right = 360.0
 offset_bottom = 463.0
 scale = Vector2(1.83626, 1.07685)
+theme_override_fonts/font = ExtResource("11_lqoqj")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/background = SubResource("StyleBoxFlat_rutb8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u44kj")
+value = 2.82

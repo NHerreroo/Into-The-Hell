@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://nfsumg4c8efm"]
+[gd_scene load_steps=22 format=3 uid="uid://nfsumg4c8efm"]
 
 [ext_resource type="Script" path="res://scenes/Enemies/Worm_boss.gd" id="1_4ye1l"]
-[ext_resource type="Texture2D" uid="uid://b6nn7lw420ns7" path="res://sprites/Enemies/bossslimedamage.png" id="2_vkf8l"]
+[ext_resource type="Texture2D" uid="uid://d3o1jlss4lhcf" path="res://sprites/Enemies/damgegusano.png" id="2_ukcxd"]
 [ext_resource type="Texture2D" uid="uid://d1i1mnm8cseel" path="res://sprites/Enemies/entr32gusano.png" id="3_7pj8j"]
 [ext_resource type="Texture2D" uid="uid://d21ye6wi2se7" path="res://sprites/Enemies/gusanoserio1.png" id="3_mv44f"]
 [ext_resource type="Texture2D" uid="uid://rvdnjgoer5b6" path="res://sprites/Enemies/gusanoserio2.png" id="4_agjsi"]
@@ -15,12 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://dxvvdc6oc6ds1" path="res://sprites/Enemies/suelto2.png" id="10_e1gkr"]
 [ext_resource type="Texture2D" uid="uid://cpm0yfcbwmngq" path="res://sprites/Enemies/suelto23png.png" id="11_ckip7"]
 [ext_resource type="Texture2D" uid="uid://cfdims7slndyt" path="res://sprites/bullet1.png" id="11_ko2h3"]
+[ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="16_if06v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1mtlq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_vkf8l")
+"texture": ExtResource("2_ukcxd")
 }],
 "loop": true,
 "name": &"damage",
@@ -58,6 +59,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
 "speed": 5.0
 }, {
 "frames": [{
@@ -111,6 +117,12 @@ radius = 13.3408
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jwff0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gj77"]
+bg_color = Color(0.24, 0.24, 0.24, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1gql"]
+bg_color = Color(0, 0.611189, 0.306043, 1)
+
 [node name="WormBoss" type="CharacterBody2D" groups=["mobs"]]
 scale = Vector2(2.34872, 2.2875)
 script = ExtResource("1_4ye1l")
@@ -118,8 +130,7 @@ script = ExtResource("1_4ye1l")
 [node name="WormBosas" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_1mtlq")
-animation = &"sale"
-frame_progress = 0.645291
+animation = &"damage"
 
 [node name="Bullet1" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.654902)
@@ -150,3 +161,8 @@ offset_top = 436.0
 offset_right = 360.0
 offset_bottom = 463.0
 scale = Vector2(1.83626, 1.07685)
+theme_override_fonts/font = ExtResource("16_if06v")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/background = SubResource("StyleBoxFlat_4gj77")
+theme_override_styles/fill = SubResource("StyleBoxFlat_n1gql")
+value = 6.66

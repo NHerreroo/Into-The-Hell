@@ -321,7 +321,6 @@ texture = ExtResource("6_nfn0f")
 
 [node name="bar" type="AnimatedSprite2D" parent="."]
 position = Vector2(29.1516, 75.6585)
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_jc0or")
 animation = &"idle"
 

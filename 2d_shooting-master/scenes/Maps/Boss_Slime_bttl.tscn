@@ -170,6 +170,7 @@ scale = Vector2(1.25563, 0.659735)
 shape = SubResource("CircleShape2D_wsglb")
 
 [node name="Player" parent="." instance=ExtResource("2_1sneq")]
+visible = false
 position = Vector2(142, 200)
 scale = Vector2(1.085, 1.085)
 

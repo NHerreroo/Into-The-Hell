@@ -2,8 +2,8 @@ extends Node
 
 var is_pulso_ritmo = false
 var tempo = 1
-
-
+var agujero_position = 0
+var godbattle = false
 #variables para incremenatr en parida
 var daño = 1150.0
 var velocidad = 250.0
@@ -26,13 +26,13 @@ var nodamage = false
 
 var run_start = false
 var is_playing = false
-var number_of_floor = 1
+var number_of_floor = 4
 
 var camera = true
 var enemies_on_screen = 0
 var bossdefeat = false
-
-var monedas = 0
+var secondphaseboss = false
+var monedas = 100
 var health = 1
 var death = false
 		

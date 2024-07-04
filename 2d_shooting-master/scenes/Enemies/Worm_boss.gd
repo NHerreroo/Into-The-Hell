@@ -25,12 +25,14 @@ func _ready():
 	$WormBosas.play("idle")
 	await get_tree().create_timer(7).timeout
 	while health > 0:
-		# llamar funcionmes del comportamieto
+		$WormBosas.play("sale")
+		await get_tree().create_timer(0.3).timeout
 		ocultarse()
 		await get_tree().create_timer(5).timeout
 		$WormBosas.play("entra")
+		await get_tree().create_timer(0.3).timeout
 		disparar()
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(5).timeout
 		shooting = false
 		
 
@@ -60,10 +62,12 @@ func take_damage():
 	await get_tree().create_timer(0.1).timeout
 	$WormBosas.play(str(sprite))
 	if health <= 0:
+		Global.godbattle = true
 		Global.bossdefeat = true
 		bloodInstance()
 		money()
 		queue_free()
+		
 
 func money():
 	var num = randi() % 4 + 1
@@ -80,12 +84,17 @@ func bloodInstance():
 
 
 func ocultarse():
+	$Area2D/CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = true
 	$WormBosas.play("suelo")
 	speed = 140
 		
 	
 var shooting = false
+
 func disparar():
+	$Area2D/CollisionShape2D.disabled = false
+	$CollisionShape2D.disabled = false
 	speed = 0
 	shooting = true
 	$WormBosas.play("shoot")

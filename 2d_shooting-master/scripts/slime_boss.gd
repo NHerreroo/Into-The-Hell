@@ -6,7 +6,7 @@ var bullet = preload("res://scenes/Enemies/balas/bala_enemy.tscn")
 
 var speed = 0
 var accel = 7
-var health = 7000
+var health = 10000
 var repelForce = 300
 var sprite = "idle"
 
@@ -34,7 +34,7 @@ func _process(delta):
 		
 	$CanvasLayer/ProgressBar.value = health
 	if health <= 4000:
-		wait = 0.3
+		wait = 0.2
 
 func _physics_process(delta):
 	var direction = Vector2()
@@ -55,6 +55,7 @@ func take_damage():
 	await get_tree().create_timer(0.1).timeout
 	$slimeboss.play(str(sprite))
 	if health <= 0:
+		Global.godbattle = true
 		Global.bossdefeat = true
 		bloodInstance()
 		money()

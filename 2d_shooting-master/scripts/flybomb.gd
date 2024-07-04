@@ -12,6 +12,7 @@ var repelForce = 300  # Adjust as needed
 @onready var nav : NavigationAgent2D = $NavigationAgent2D
 
 func _ready():
+	health = health * Global.number_of_floor
 	$bomb.play("idle")
 
 func _physics_process(delta):

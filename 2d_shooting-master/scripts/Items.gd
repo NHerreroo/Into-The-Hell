@@ -1,6 +1,32 @@
 extends Node
 
-#List of items
+var num1 = 0
+
+func random():
+	num1 = randi() % 4 + 1
+	
+func randomstat():
+	random()
+	if num1 == 1:
+		Global.velocidad += 60
+	elif num1 == 2:
+		Global.cadencia -= 0.025
+	elif num1 == 3:
+		Global.daño += 30
+	elif num1 == 4:
+		Global.velocidadbala -= 100
+	
+
+func randomstatnegative():
+	random()
+	if num1 == 1:
+		Global.velocidad -= 60
+	elif num1 == 2:
+		Global.cadencia += 0.025
+	elif num1 == 3:
+		Global.daño -= 30
+	elif num1 == 4:
+		Global.velocidadbala += 100
 
 func FreshTheeth():
 	Global.velocidad += 100
@@ -38,8 +64,7 @@ func sexpistol():
 			Global.daño -= 400
 			
 func nerdge():
-	#Global.velocidadbala *= 1.5
-	pass
+	Global.velocidadbala += 130
 
 func onrepeat():
 	Global.max_bulelts += 5
@@ -74,7 +99,8 @@ func maxglove():
 	Global.daño += 20
 
 func pirlete():
-	pass
+	randomstat()
+	randomstatnegative()
 	
 func bigbangbabby():
 	Global.bullet_sizeX += 0.18
@@ -95,17 +121,18 @@ func ajo():
 
 func bigcrunch():
 	Global.number_of_floor = 1
+	get_tree().change_scene_to_file("res://scenes/Maps/lobby.tscn")
 	
 func sandwichvida():
 	Global.cadencia -= 0.018
 	Global.health -= 5
 	
 func canicas():
-	Global.cadencia -= 0.065
+	Global.cadencia -= 0.15
 	
 func coffe():
 	Global.velocidad += 100
-	Global.cadencia -= 0.018
+	Global.cadencia -= 0.028
 
 func relarena():
 	Global.recarga -= 0.35
@@ -122,8 +149,8 @@ func java():
 	Global.cadencia -= 0.035
 	
 func flameth():
-	Global.cadencia -= 0.12
-	Global.daño -= 35
+	Global.cadencia -= 0.42
+	Global.daño -= 40
 	Global.max_bulelts += 10
 
 func misisipi():
@@ -153,7 +180,7 @@ func brokenruler():
 	Global.velocidadbala -= 100
 
 func fortunecookie():
-	pass
+	randomstat()
 	
 func cannon():
 	Global.velocidadbala -= 170
@@ -171,7 +198,6 @@ func atomic():
 
 func beefbu():
 	Global.daño += 35
-	
 
 func cyclops():
 	Global.bullet_sizeX += 0.25
@@ -215,7 +241,7 @@ func socialcredit():
 	Global.cadencia -= 0.015
 	
 func mutation():
-	pass
+	randomstat()
 
 func normalcan():
 	Global.velocidadbala -= 150
@@ -229,13 +255,34 @@ func bug():
 	Global.max_bulelts += randi() % 30 + 1 
 	
 func stonks():
-	var balas = randi() % 30 + 1 
+	var monedas = randi() % 30 + 1 
 	var opcion = randi() % 2 +1
 	if opcion == 1:
-		Global.max_bulelts += balas
+		Global.monedas += monedas
 	else:
-		Global.max_bulelts -= balas
+		Global.monedas -= monedas
 		
+		
+		
+		
+		
+func god():
+	Global.daño += 60
+	
+func herencia():
+	Global.monedas += 40
+
+func nuke():
+	Global.daño += 50
+
+func pi():
+	Global.max_bulelts = 999999999999999999
+
+func partice():
+	Global.cadencia -= 0.20
+
+func pyramid():
+	Global.cadencia -= 0.15
 
 func _process(delta):
 	if antigravv == true:
@@ -251,3 +298,5 @@ func _process(delta):
 		Global.velocidad = 30
 	if Global.velocidadbala < 0:
 		Global.velocidadbala = 0
+	if Global.monedas <= 0:
+		Global.monedas = 0

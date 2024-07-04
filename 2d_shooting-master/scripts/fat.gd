@@ -12,6 +12,7 @@ var sprite = "idle"
 @onready var nav : NavigationAgent2D = $NavigationAgent2D
 
 func _ready():
+	health = health * Global.number_of_floor
 	if Global.number_of_floor > 3:
 		sprite = "idle2"
 		health = 380

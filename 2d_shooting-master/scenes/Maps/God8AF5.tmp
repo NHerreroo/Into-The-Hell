@@ -1,0 +1,246 @@
+[gd_scene load_steps=19 format=3 uid="uid://dopy7sgf1jlsl"]
+
+[ext_resource type="Script" path="res://scripts/Boss_Slime_bttlControl.gd" id="1_wnhqf"]
+[ext_resource type="PackedScene" uid="uid://cbte3b4xu34rd" path="res://scenes/Maps/map.tscn" id="2_tmrxx"]
+[ext_resource type="Texture2D" uid="uid://bn16odsyx76jd" path="res://sprites/agujero.png" id="3_72qyl"]
+[ext_resource type="PackedScene" uid="uid://cplxodob0s7f0" path="res://scenes/Enemies/god_eye_boss.tscn" id="3_xapke"]
+[ext_resource type="PackedScene" uid="uid://lu360wtn18oh" path="res://scenes/Player/player.tscn" id="5_23khi"]
+[ext_resource type="PackedScene" uid="uid://3nqv2575ej6b" path="res://scenes/Maps/start_round.tscn" id="6_y65hw"]
+[ext_resource type="PackedScene" uid="uid://bybqfkrd7uhkm" path="res://scenes/Enemies/spawner.tscn" id="7_7gwrf"]
+[ext_resource type="PackedScene" uid="uid://xxu26jbjvw6q" path="res://scenes/Player/Croshair.tscn" id="8_2no2u"]
+[ext_resource type="AudioStream" uid="uid://cwsct4l0it33l" path="res://Music/battle(provisonal).mp3" id="9_215sc"]
+[ext_resource type="Texture2D" uid="uid://cxhyxlpwtpqej" path="res://sprites/Enemies/wormcard.png" id="10_a77h4"]
+[ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="11_5jf07"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wsglb"]
+radius = 20.8297
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oy5y2"]
+vertices = PackedVector2Array(646, -162, 644, 429, -314, 430, -315, -160)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-315, -160, -314, 430, 644, 429, 646, -162)])
+
+[sub_resource type="Animation" id="Animation_yk07w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Camera2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 60.875)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Sooslimebatle:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(143, 18)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ColorRect2:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4t5u7"]
+resource_name = "cameraentry"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera2D:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.3, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 60.875), Vector2(0, -108.465), Vector2(0, -139.335), Vector2(0, -119.715), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sooslimebatle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5, 2.5, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-741, 26), Vector2(-568, 16), Vector2(143, 18), Vector2(143, 18), Vector2(1818, -80)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ColorRect2:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 3.1, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.854902), Color(0, 0, 0, 0.854902), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8s28y"]
+resource_name = "entry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ycpe6"]
+resource_name = "final"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4nwdx"]
+_data = {
+"RESET": SubResource("Animation_yk07w"),
+"cameraentry": SubResource("Animation_4t5u7"),
+"entry": SubResource("Animation_8s28y"),
+"final": SubResource("Animation_ycpe6")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wnhqf")
+
+[node name="Map" parent="." instance=ExtResource("2_tmrxx")]
+z_index = -2
+position = Vector2(52, -18)
+
+[node name="Agujero" type="Sprite2D" parent="."]
+position = Vector2(141, 56)
+scale = Vector2(2.75417, 2.38235)
+texture = ExtResource("3_72qyl")
+
+[node name="Area2D" type="Area2D" parent="Agujero"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Agujero/Area2D"]
+position = Vector2(-0.363091, 15.9506)
+scale = Vector2(1.25563, 0.659735)
+shape = SubResource("CircleShape2D_wsglb")
+
+[node name="Player" parent="." instance=ExtResource("5_23khi")]
+position = Vector2(142, 200)
+scale = Vector2(1.085, 1.085)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="StartRound" parent="Player/CanvasLayer" instance=ExtResource("6_y65hw")]
+visible = false
+z_index = 1
+
+[node name="GodEye" parent="." instance=ExtResource("3_xapke")]
+position = Vector2(139, -42)
+scale = Vector2(2.34527, 2.45951)
+
+[node name="Spawner" parent="." instance=ExtResource("7_7gwrf")]
+scale = Vector2(1.00745, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_oy5y2")
+constrain_avoidance = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -397.0
+offset_top = -230.0
+offset_right = 691.0
+offset_bottom = 540.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_4nwdx")
+}
+
+[node name="CROSHAIR" parent="." instance=ExtResource("8_2no2u")]
+z_index = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_215sc")
+volume_db = 10.895
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(143, 167)
+offset = Vector2(0, 60.875)
+
+[node name="Sooslimebatle" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(143, 18)
+scale = Vector2(2.11549, 2.01681)
+texture = ExtResource("10_a77h4")
+
+[node name="Label" type="Label" parent="Sooslimebatle"]
+offset_left = -98.7952
+offset_top = -1.48933
+offset_right = -1.79523
+offset_bottom = 21.5107
+rotation = -0.0822654
+scale = Vector2(1.55971, 1.57029)
+pivot_offset = Vector2(2.355, 0)
+theme_override_colors/font_outline_color = Color(0.0941176, 0.00784314, 0.00784314, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("11_5jf07")
+theme_override_font_sizes/font_size = 20
+text = "WoWORM"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -750.0
+offset_top = -460.0
+offset_right = -710.0
+offset_bottom = -420.0
+scale = Vector2(45.32, 41.122)
+color = Color(0, 0, 0, 0)
+
+[connection signal="area_entered" from="Agujero/Area2D" to="." method="_on_area_2d_area_entered"]

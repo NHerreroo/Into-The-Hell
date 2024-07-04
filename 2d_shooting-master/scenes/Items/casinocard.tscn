@@ -14,7 +14,7 @@ fractal_gain = 0.74
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_av4a2"]
 noise = SubResource("FastNoiseLite_3t3tn")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_txddl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58yxf"]
 resource_local_to_scene = true
 shader = ExtResource("2_hutav")
 shader_parameter/dissolve_value = 1.0
@@ -74,7 +74,7 @@ offset_bottom = 479.0
 color = Color(0, 0, 0, 0.698039)
 
 [node name="Card" parent="." instance=ExtResource("1_dfkqm")]
-material = SubResource("ShaderMaterial_txddl")
+material = SubResource("ShaderMaterial_58yxf")
 layout_mode = 0
 offset_left = 248.0
 offset_top = 123.0

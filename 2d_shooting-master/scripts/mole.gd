@@ -24,6 +24,7 @@ func get_random_pos():
 	num2 = randi_range(-76, 300)
 	
 func _ready():
+	health = health * Global.number_of_floor
 	while true:
 		$CollisionShape2D.disabled = false
 		$topo.play("entra")

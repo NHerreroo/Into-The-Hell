@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://lu360wtn18oh"]
+[gd_scene load_steps=49 format=3 uid="uid://lu360wtn18oh"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_mbcfw"]
 [ext_resource type="Texture2D" uid="uid://dcbaa551qqdng" path="res://sprites/player/down1.png" id="2_2n1ei"]
@@ -34,6 +34,8 @@
 [ext_resource type="Texture2D" uid="uid://b01tqugfd6icr" path="res://sprites/reload3.png" id="32_3kq0n"]
 [ext_resource type="Texture2D" uid="uid://chn1ce7ra50lo" path="res://sprites/reload2.png" id="33_w2lkb"]
 [ext_resource type="Texture2D" uid="uid://tms1vv36fhss" path="res://sprites/reload1.png" id="34_caxp2"]
+[ext_resource type="Texture2D" uid="uid://dak8a2pp4exns" path="res://sprites/flecha.png" id="35_8cmvp"]
+[ext_resource type="AudioStream" uid="uid://b1silsospyqce" path="res://Music/SFX/733268__datbloxybirb__tapedmarimba_deathsound.mp3" id="36_o40ao"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qxyap"]
 radius = 23.7697
@@ -426,6 +428,16 @@ offset_right = -507.0
 offset_bottom = -331.0
 scale = Vector2(31.1198, 22.3952)
 color = Color(0, 0, 0, 1)
+
+[node name="Flecha" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, 1)
+texture = ExtResource("35_8cmvp")
+offset = Vector2(117, -1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("36_o40ao")
+volume_db = 9.079
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

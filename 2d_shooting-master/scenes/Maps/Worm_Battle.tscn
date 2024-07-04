@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bybqfkrd7uhkm" path="res://scenes/Enemies/spawner.tscn" id="6_54t7c"]
 [ext_resource type="PackedScene" uid="uid://xxu26jbjvw6q" path="res://scenes/Player/Croshair.tscn" id="7_8vavb"]
 [ext_resource type="AudioStream" uid="uid://cwsct4l0it33l" path="res://Music/battle(provisonal).mp3" id="8_xj4wf"]
-[ext_resource type="Texture2D" uid="uid://k1s0rnfpwpih" path="res://sprites/Enemies/sooslimebatle.png" id="10_i042t"]
+[ext_resource type="Texture2D" uid="uid://cxhyxlpwtpqej" path="res://sprites/Enemies/wormcard.png" id="10_qnjdi"]
 [ext_resource type="PackedScene" uid="uid://nfsumg4c8efm" path="res://scenes/Enemies/Worm_boss.tscn" id="11_qv8rr"]
 [ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="11_r1n6f"]
 
@@ -217,7 +217,7 @@ offset = Vector2(0, 60.875)
 z_index = 1
 position = Vector2(143, 18)
 scale = Vector2(2.11549, 2.01681)
-texture = ExtResource("10_i042t")
+texture = ExtResource("10_qnjdi")
 
 [node name="Label" type="Label" parent="Sooslimebatle"]
 offset_left = -98.7952

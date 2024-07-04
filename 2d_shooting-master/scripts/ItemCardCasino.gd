@@ -134,39 +134,54 @@ func _on_mouse_exited() -> void:
 var numitem = 0
 
 func get_random_number():
-	numitem = randi() % 10 + 1 #36
+	numitem = randi() % 9 + 1 #36
 	
 	
 func selectItem():
 	get_random_number()
 	print(numitem)
 	#da textura a la carta
-	$CardTexture.texture = load("res://sprites/Items/" + str(numitem) + ".png")
+	if numitem == 1:
+		$CardTexture.texture = load("res://sprites/Items/godpower.png")
+	elif numitem == 2:
+		$CardTexture.texture = load("res://sprites/Items/inherticance.png")
+	elif numitem == 3:
+		$CardTexture.texture = load("res://sprites/Items/nuke.png")
+	elif numitem == 4:
+		$CardTexture.texture = load("res://sprites/Items/particel accel.png")
+	elif numitem == 5:
+		$CardTexture.texture = load("res://sprites/Items/pi.png")
+	elif numitem == 6: 
+		$CardTexture.texture = load("res://sprites/Items/piamid.png")
+	elif numitem == 7:
+		$CardTexture.texture = load("res://sprites/Items/32.png")
+	elif numitem == 8:
+		$CardTexture.texture = load("res://sprites/Items/52.png")
+	elif numitem == 9:
+		$CardTexture.texture = load("res://sprites/Items/17.png")
 	
 func _on_pressed():
 	if Global.itemcasinoselected == true:
 		self.disabled
 	if Global.itemcasinoselected == false:
 		if numitem == 1: #freshteeth
-			Item.FreshTheeth()
+			Item.god()
 		if numitem == 2: #toastburnt
-			Item.burntToast()
+			Item.herencia()
 		if numitem == 3: #toastburnt
-			Item.bullying()
+			Item.nuke()
 		if numitem == 4: #toastburnt
-			Item.ironlung()
+			Item.partice()
 		if numitem == 5: #toastburnt
-			Item.monocle()
+			Item.pi()
 		if numitem == 6: #toastburnt
-			Item.overload()
+			Item.pyramid()
 		if numitem == 7: #toastburnt
-			Item.sexpistol()
+			Item.flameth()
 		if numitem == 8: #toastburnt
-			Item.nerdge()
+			Item.leghero()
 		if numitem == 9: #toastburnt
-			Item.onrepeat()
-		if numitem == 10: #toastburnt
-			Item.onrepeat()
+			Item.magiclemon()
 
 		Global.itemcasinoselected = true
 		destroy()

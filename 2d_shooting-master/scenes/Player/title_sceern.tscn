@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://scb1tg86u8gg"]
+[gd_scene load_steps=11 format=3 uid="uid://scb1tg86u8gg"]
 
 [ext_resource type="Script" path="res://TitleSceern.gd" id="1_udb81"]
 [ext_resource type="Texture2D" uid="uid://d0w7xme1vtmfi" path="res://sprites/title screen.png" id="2_7bbv3"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="3_vvx8s"]
 [ext_resource type="Texture2D" uid="uid://ctgdi5468v72n" path="res://sprites/buttons.png" id="4_ywqk3"]
 [ext_resource type="Texture2D" uid="uid://cjp61eqw7bsar" path="res://sprites/logo2.png" id="6_ce8tv"]
+[ext_resource type="AudioStream" uid="uid://blu7yaxe6433m" path="res://Music/SFX/Maintheme.mp3" id="7_uywnq"]
 
 [sub_resource type="Animation" id="Animation_rgv0p"]
 length = 0.001
@@ -110,5 +111,10 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_krlmb")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_uywnq")
+volume_db = 8.069
+autoplay = true
 
 [connection signal="pressed" from="Start" to="." method="_on_button_pressed"]

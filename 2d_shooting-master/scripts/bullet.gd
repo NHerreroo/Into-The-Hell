@@ -4,10 +4,15 @@ var speed = Global.velocidadbala
 var is_bullet_deleted = false
 
 func _ready():
+	if Global.secondphaseboss == true:
+		$PointLight2D.visible = false
+	else:
+		$PointLight2D.visible = true
 	$Sprite2d.play("Bullet1")
 	await get_tree().create_timer(15).timeout
 	look_at(get_global_mouse_position())
 	queue_free()
+	
 
 func _process(delta):
 	if Global.death == true:

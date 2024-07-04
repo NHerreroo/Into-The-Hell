@@ -13,6 +13,7 @@ var sprite = "idle"
 		
 
 func _ready():
+	health = health * Global.number_of_floor
 	if Global.number_of_floor == 2:
 		sprite = "idle2"
 		health = 140

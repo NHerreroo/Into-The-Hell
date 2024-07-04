@@ -12,6 +12,7 @@ var repelForce = 300  # Adjust as needed
 @onready var nav : NavigationAgent2D = $NavigationAgent2D
 
 func _ready():
+	health = health * Global.number_of_floor
 	$throwr.play("idle")
 	while health > 0:
 		await get_tree().create_timer(1).timeout
