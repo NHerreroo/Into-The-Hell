@@ -121,7 +121,6 @@ func ajo():
 
 func bigcrunch():
 	Global.number_of_floor = 1
-	get_tree().change_scene_to_file("res://scenes/Maps/lobby.tscn")
 	
 func sandwichvida():
 	Global.cadencia -= 0.018

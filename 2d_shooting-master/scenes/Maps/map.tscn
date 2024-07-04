@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbte3b4xu34rd"]
+[gd_scene load_steps=9 format=3 uid="uid://cbte3b4xu34rd"]
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_jcrxv"]
 [ext_resource type="Texture2D" uid="uid://dhgjj0qqsi5cd" path="res://sprites/escenario.png" id="1_qlnmk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://djs5gxq4mc2tv" path="res://sprites/torch2.png" id="4_abh0y"]
 [ext_resource type="Texture2D" uid="uid://dj3ojcplyeufi" path="res://sprites/torch3.png" id="5_koqsn"]
 [ext_resource type="Texture2D" uid="uid://dqry8s0cug3s1" path="res://sprites/GlobalLight.png" id="6_ylx40"]
+[ext_resource type="AudioStream" uid="uid://cwsct4l0it33l" path="res://Music/battle(provisonal).mp3" id="7_dru80"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oe1xm"]
 animations = [{
@@ -87,3 +88,7 @@ position = Vector2(-2.82361, 20.4545)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D" groups=["limits"]]
 polygon = PackedVector2Array(-1691.34, -452.273, -1149.21, -311.364, -1160.5, 1111.36, 1798.64, 1081.82, 1807.11, 634.091, 1798.64, 104.545, 1767.58, -654.545, -1140.74, -656.818, -1157.68, -313.636, -2481.95, -729.545, -1840.99, -1668.18, 550.603, -2004.55, 2479.13, -1788.64, 3591.63, -988.636, 3382.68, 1009.09, 3255.62, 1831.82, 2089.47, 2286.36, -528.014, 2034.09, -2078.17, 2468.18, -3343.15, 1125, -2199.59, -279.545, -2041.47, -761.364)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_dru80")
+volume_db = 8.667

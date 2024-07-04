@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d310oyqqm87oy"]
+[gd_scene load_steps=9 format=3 uid="uid://d310oyqqm87oy"]
 
 [ext_resource type="Script" path="res://scenes/Player/dead_scene_controller.gd" id="1_5mn88"]
 [ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="2_3lwk4"]
+[ext_resource type="AudioStream" uid="uid://dqw5x6vofmrja" path="res://Music/SFX/gameover.mp3" id="3_mry5a"]
 
 [sub_resource type="Animation" id="Animation_k4qge"]
 length = 0.001
@@ -122,5 +123,10 @@ offset_right = 18.0
 offset_bottom = 32.0
 scale = Vector2(17.4938, 12.7625)
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mry5a")
+volume_db = 14.969
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

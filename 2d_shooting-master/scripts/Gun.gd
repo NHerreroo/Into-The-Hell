@@ -49,6 +49,7 @@ func  _process(delta):
 	
 func shoot():
 	$"../Camera2D/AnimationPlayer".play("cam_zoom")
+
 	var b = bullet_scene.instantiate()
 	get_tree().root.add_child(b)
 	b.transform = $Muzzle.global_transform

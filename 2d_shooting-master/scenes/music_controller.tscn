@@ -11,11 +11,13 @@ func enviarpulso():
 	Global.is_pulso_ritmo = false
 
 func _ready():
+	Global.is_playing = true
 	await get_tree().create_timer(5).timeout
 	while Global.is_playing == true: 
 		await get_tree().create_timer(Global.tempo).timeout
-		$Blackout.play()
-		enviarpulso()
+		if Global.death == false:
+			$Blackout.play()
+			enviarpulso()
 		
 
 		

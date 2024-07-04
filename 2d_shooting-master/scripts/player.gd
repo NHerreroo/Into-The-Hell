@@ -36,7 +36,6 @@ func _process(delta):
 		Engine.time_scale = 0.5
 		$Damage/death2.visible = true
 		$Damage/Damage/AnimationPlayer.play("fadedeath")
-		$AudioStreamPlayer2D.play()
 		await get_tree().create_timer(2).timeout
 		Engine.time_scale = 1
 		get_tree().change_scene_to_file("res://scenes/Player/dead.tscn")

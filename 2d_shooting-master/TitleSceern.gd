@@ -41,3 +41,7 @@ func _on_button_pressed():
 	$AnimationPlayer.play("fadeout")
 	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://scenes/Maps/lobby.tscn")
+
+
+func _on_start_2_pressed():
+	

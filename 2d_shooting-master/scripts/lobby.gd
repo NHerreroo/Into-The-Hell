@@ -58,6 +58,7 @@ func _process(delta):
 	elif Global.nodamage == true:
 		$"puerta casino".play("default")
 		$puertacasinocollision.disabled = true
+		
 
 
 func _on_casinofllor_area_entered(area):

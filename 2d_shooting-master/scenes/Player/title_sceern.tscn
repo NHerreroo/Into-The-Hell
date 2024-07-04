@@ -74,10 +74,10 @@ texture = ExtResource("2_7bbv3")
 
 [node name="Start" type="Button" parent="."]
 layout_mode = 0
-offset_left = 220.0
-offset_top = 384.0
-offset_right = 369.0
-offset_bottom = 429.0
+offset_left = 218.0
+offset_top = 355.0
+offset_right = 367.0
+offset_bottom = 400.0
 scale = Vector2(1.39182, 1.49023)
 focus_mode = 0
 theme_override_colors/font_outline_color = Color(0.159168, 0.03246, 0.0288075, 1)
@@ -117,4 +117,41 @@ stream = ExtResource("7_uywnq")
 volume_db = 8.069
 autoplay = true
 
+[node name="Start2" type="Button" parent="."]
+offset_left = 258.0
+offset_top = 434.0
+offset_right = 407.0
+offset_bottom = 479.0
+scale = Vector2(0.865894, 0.871171)
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0.159168, 0.03246, 0.0288075, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("3_vvx8s")
+theme_override_font_sizes/font_size = 29
+text = "CREDITS"
+flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Start2"]
+z_index = -1
+position = Vector2(74.0038, 22.8153)
+scale = Vector2(1.31094, 0.691606)
+texture = ExtResource("4_ywqk3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 450.0
+offset_right = 63.0
+offset_bottom = 476.0
+text = "V 1.0.0"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 452.0
+offset_right = 693.0
+offset_bottom = 478.0
+text = "By NachoHerrero"
+
 [connection signal="pressed" from="Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Start2" to="." method="_on_start_2_pressed"]

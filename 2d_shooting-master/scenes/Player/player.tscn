@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://chn1ce7ra50lo" path="res://sprites/reload2.png" id="33_w2lkb"]
 [ext_resource type="Texture2D" uid="uid://tms1vv36fhss" path="res://sprites/reload1.png" id="34_caxp2"]
 [ext_resource type="Texture2D" uid="uid://dak8a2pp4exns" path="res://sprites/flecha.png" id="35_8cmvp"]
-[ext_resource type="AudioStream" uid="uid://b1silsospyqce" path="res://Music/SFX/733268__datbloxybirb__tapedmarimba_deathsound.mp3" id="36_o40ao"]
+[ext_resource type="AudioStream" uid="uid://deb6x8s0iydwj" path="res://Music/SFX/350919__cabled_mess__hurt_c_05.wav" id="36_cfsgn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qxyap"]
 radius = 23.7697
@@ -436,8 +436,8 @@ texture = ExtResource("35_8cmvp")
 offset = Vector2(117, -1)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("36_o40ao")
-volume_db = 9.079
+stream = ExtResource("36_cfsgn")
+volume_db = 11.506
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqdfbhd43rrlw"]
+
+[ext_resource type="Texture2D" uid="uid://d0w7xme1vtmfi" path="res://sprites/title screen.png" id="1_xnbru"]
+[ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="2_xp17x"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleScreen" type="Sprite2D" parent="."]
+position = Vector2(350, 250)
+scale = Vector2(1.37816, 1.2096)
+texture = ExtResource("1_xnbru")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 120.0
+offset_right = 804.0
+offset_bottom = 631.0
+scale = Vector2(0.767064, 0.735597)
+theme_override_font_sizes/font_size = 26
+text = "Tunnels by FoolBoyMedia -- https://freesound.org/s/341865/ -- License: Attribution NonCommercial 4.0
+
+
+Sad game menu loop #2 by AxelTheCocker02 -- https://freesound.org/s/743711/ -- License: Attribution 4.0
+
+
+8-bit Hurt1.aif by timgormly -- https://freesound.org/s/170148/ -- License: Attribution 3.0"
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 43.0
+offset_right = 384.0
+offset_bottom = 121.0
+scale = Vector2(0.767064, 0.735597)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("2_xp17x")
+theme_override_font_sizes/font_size = 40
+text = "Credits
+
+"
+autowrap_mode = 3
+
+[node name="Start2" type="Button" parent="."]
+offset_left = 11.0
+offset_top = 428.0
+offset_right = 160.0
+offset_bottom = 473.0
+scale = Vector2(0.865894, 0.871171)
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0.159168, 0.03246, 0.0288075, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("2_xp17x")
+theme_override_font_sizes/font_size = 29
+text = "Back
+"
+flat = true

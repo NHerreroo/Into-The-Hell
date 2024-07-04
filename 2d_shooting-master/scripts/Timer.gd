@@ -12,7 +12,6 @@ func _ready():
 	var musicsound = music.instantiate()
 	get_tree().root.add_child(musicsound)
 	await get_tree().create_timer(5).timeout
-	$"../../../AudioStreamPlayer2D".play()
 	while Global.is_playing == true:
 		await get_tree().create_timer(1).timeout
 		if minutes == 0 and seconds == 0:
