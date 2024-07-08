@@ -14,7 +14,7 @@ config/name="Into The Hell"
 run/main_scene="res://scenes/Player/title_sceern.tscn"
 config/features=PackedStringArray("4.1")
 boot_splash/bg_color=Color(0.0117647, 0.0117647, 0.0117647, 1)
-config/icon="res://icon.svg"
+config/icon="res://Captura de pantalla 2024-07-08 131106.png"
 
 [audio]
 

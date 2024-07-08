@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqdfbhd43rrlw"]
+[gd_scene load_steps=4 format=3 uid="uid://cqdfbhd43rrlw"]
 
+[ext_resource type="Script" path="res://scenes/Maps/CreditsCopy.gd" id="1_vc0h2"]
 [ext_resource type="Texture2D" uid="uid://d0w7xme1vtmfi" path="res://sprites/title screen.png" id="1_xnbru"]
 [ext_resource type="FontFile" uid="uid://blq30wx2ff0at" path="res://upheavtt.ttf" id="2_xp17x"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_vc0h2")
 
 [node name="TitleScreen" type="Sprite2D" parent="."]
 position = Vector2(350, 250)
@@ -50,6 +52,7 @@ text = "Credits
 autowrap_mode = 3
 
 [node name="Start2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 428.0
 offset_right = 160.0
@@ -63,3 +66,5 @@ theme_override_font_sizes/font_size = 29
 text = "Back
 "
 flat = true
+
+[connection signal="pressed" from="Start2" to="." method="_on_start_2_pressed"]

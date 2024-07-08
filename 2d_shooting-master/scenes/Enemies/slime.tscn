@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://djwxpymrghgy6"]
 
-[ext_resource type="Texture2D" uid="uid://pl3e5xcuv32h" path="res://sprites/Slime1.png" id="1_4ki2i"]
 [ext_resource type="Texture2D" uid="uid://dxf1hpuw1rt6k" path="res://sprites/SlimeShine.png" id="1_28jkr"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_qr5d3"]
-[ext_resource type="Texture2D" uid="uid://cw2wlsi400tv1" path="res://sprites/Slime2.png" id="2_i6lfq"]
+[ext_resource type="Texture2D" uid="uid://c71w7hfmyf5bp" path="res://sprites/Enemies/Slime1.png" id="3_n0mes"]
+[ext_resource type="Texture2D" uid="uid://bm2alphj7t452" path="res://sprites/Enemies/Slime2.png" id="4_8gne8"]
 [ext_resource type="Texture2D" uid="uid://7k0nwl5i8vog" path="res://sprites/Enemies/Slime2-1.png" id="5_iqfkt"]
 [ext_resource type="Texture2D" uid="uid://bsl36pmiklkuk" path="res://sprites/Enemies/Slime2-2.png" id="6_itttl"]
 [ext_resource type="Texture2D" uid="uid://1467bpbg15g4" path="res://sprites/Enemies/Slime3-1.png" id="7_lj0fs"]
@@ -23,13 +23,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4ki2i")
+"texture": ExtResource("3_n0mes")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_i6lfq")
+"texture": ExtResource("4_8gne8")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"def",
 "speed": 5.0
 }, {
 "frames": [{
@@ -80,8 +80,8 @@ script = ExtResource("1_qr5d3")
 position = Vector2(9.53674e-07, 9.53674e-07)
 scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_1khl4")
-animation = &"idle4"
-frame_progress = 0.860692
+animation = &"def"
+frame_progress = 0.69281
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 

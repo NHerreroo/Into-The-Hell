@@ -2,7 +2,7 @@ extends Label
 
 var music = preload("res://scenes/music_controller.tscn")
 var item = preload("res://scenes/Items/select_item.tscn")
-var minutes = 1
+var minutes = 0
 var seconds = 30 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -7,13 +7,18 @@ var speed = 150
 var accel = 7
 var health = 100
 var repelForce = 300  # Adjust as needed
-var sprite = "idle"
+var sprite = "def"
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var nav : NavigationAgent2D = $NavigationAgent2D
-		
+
 
 func _ready():
+	sprite = "idle2"
+	$Slime.play("idle2")
 	health = health * Global.number_of_floor
+	if Global.number_of_floor == 1:
+		sprite = "idle2"
+		health = 100
 	if Global.number_of_floor == 2:
 		sprite = "idle2"
 		health = 140

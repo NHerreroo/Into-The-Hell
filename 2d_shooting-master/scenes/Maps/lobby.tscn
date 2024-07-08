@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b38rabr8dphfs"]
+[gd_scene load_steps=48 format=3 uid="uid://b38rabr8dphfs"]
 
 [ext_resource type="Texture2D" uid="uid://lhmirvskgjwh" path="res://sprites/lobby.png" id="1_f5nyi"]
 [ext_resource type="Script" path="res://scripts/lobby.gd" id="1_x7amr"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://dtvu2xpejyhec" path="res://sprites/casindoor1cerrada2.png" id="19_x5q6i"]
 [ext_resource type="PackedScene" uid="uid://dtahamr86oofp" path="res://scenes/Items/casinocard.tscn" id="22_p020b"]
 [ext_resource type="PackedScene" uid="uid://5g7ep17yy7k" path="res://scenes/Items/shop.tscn" id="28_h6dwb"]
+[ext_resource type="Texture2D" uid="uid://bkbgvfylwhjh7" path="res://sprites/puertacasuniarreglo.png" id="32_7sfmq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n2vo0"]
 animations = [{
@@ -423,6 +424,11 @@ volume_db = 8.914
 autoplay = true
 attenuation = 0.732044
 panning_strength = 0.0
+
+[node name="Puertacasuniarreglo" type="Sprite2D" parent="."]
+position = Vector2(324.166, 214.46)
+scale = Vector2(1.304, 1.362)
+texture = ExtResource("32_7sfmq")
 
 [node name="Shop" type="Area2D" parent="."]
 

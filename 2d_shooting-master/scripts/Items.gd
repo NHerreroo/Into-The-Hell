@@ -40,12 +40,13 @@ func bullying():
 func ironlung():
 	Global.velocidad += 50
 	if Global.health > 1:
-		Global.health -= 2
+		Global.health -= 5
 		
 func monocle():
 	Global.bullet_sizeX += 0.3
 	Global.bullet_sizeY += 0.3
 	Global.velocidadbala -= 20
+	Global.daño += 25
 	
 
 func overload():
@@ -80,11 +81,12 @@ func antigrav():
 func asrtofood():
 	Global.bullet_sizeX += 0.15
 	Global.bullet_sizeY += 0.15
-	Global.health -= 2
+	Global.health -= 4
 	Global.velocidadbala -= 150
+	Global.daño += 15
 
 func bean():
-	Global.health -= 4
+	Global.health -= 6
 
 func magicbean():
 	Global.health -= 4
@@ -96,7 +98,8 @@ func magiclemon():
 func maxglove():
 	Global.bullet_sizeX += 0.15
 	Global.bullet_sizeY += 0.15
-	Global.daño += 20
+	Global.velocidadbala -= 20
+	Global.daño += 25
 
 func pirlete():
 	randomstat()
@@ -105,7 +108,7 @@ func pirlete():
 func bigbangbabby():
 	Global.bullet_sizeX += 0.18
 	Global.bullet_sizeY += 0.18
-	Global.daño += 20
+	Global.daño += 30
 	Global.velocidadbala -= 100
 
 func reboot():
@@ -148,12 +151,12 @@ func java():
 	Global.cadencia -= 0.035
 	
 func flameth():
-	Global.cadencia -= 0.42
+	Global.cadencia -= 0.27
 	Global.daño -= 40
 	Global.max_bulelts += 10
 
 func misisipi():
-	Global.health -= 4
+	Global.health -= 5
 	Global.velocidad += 150
 
 func sandwichdeadth():
@@ -164,11 +167,14 @@ func themoon():
 	Global.cadencia -= 0.035
 	Global.bullet_sizeX -= 0.10
 	Global.bullet_sizeY -= 0.10
+	Global.velocidadbala -= 20
+	Global.daño += 25
 
 func thesun():
 	Global.bullet_sizeX += 0.20
 	Global.bullet_sizeY += 0.20
-	Global.daño += 20
+	Global.velocidadbala -= 20
+	Global.daño += 25
 	
 
 func skibidiki():
@@ -191,9 +197,9 @@ func thepower():
 	Global.daño += 20
 
 func atomic():
-	Global.cadencia -= 0.025
-	Global.bullet_sizeX -= 0.5
-	Global.bullet_sizeY -= 0.5
+	Global.cadencia -= 0.055
+	Global.bullet_sizeX -= 0.4
+	Global.bullet_sizeY -= 0.4
 
 func beefbu():
 	Global.daño += 35
@@ -201,6 +207,8 @@ func beefbu():
 func cyclops():
 	Global.bullet_sizeX += 0.25
 	Global.bullet_sizeY += 0.25
+	Global.velocidadbala -= 20
+	Global.daño += 30
 
 func tecnoblade():
 	Global.daño += 20
@@ -220,12 +228,12 @@ func hellish():
 	
 func terracota():
 	Global.daño += 25
-	Global.health -= 4
+	Global.health -= 6
 	
 
 func leghero():
 	Global.daño += 25
-	Global.health -= 3
+	Global.health -= 5
 	Global.cadencia -= 0.015
 
 func spiderdonut():

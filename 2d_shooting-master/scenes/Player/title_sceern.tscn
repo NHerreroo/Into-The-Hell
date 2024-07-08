@@ -62,22 +62,23 @@ offset_bottom = 479.0
 color = Color(0.996078, 0.843137, 0.737255, 1)
 
 [node name="Logo2" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(330, 85)
 scale = Vector2(0.765432, 0.765432)
 texture = ExtResource("6_ce8tv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -1
 position = Vector2(325, 249)
 scale = Vector2(1.19083, 1.10573)
 texture = ExtResource("2_7bbv3")
 
 [node name="Start" type="Button" parent="."]
+z_index = 4
 layout_mode = 0
-offset_left = 218.0
-offset_top = 355.0
-offset_right = 367.0
-offset_bottom = 400.0
+offset_left = 214.0
+offset_top = 350.0
+offset_right = 363.0
+offset_bottom = 395.0
 scale = Vector2(1.39182, 1.49023)
 focus_mode = 0
 theme_override_colors/font_outline_color = Color(0.159168, 0.03246, 0.0288075, 1)
@@ -99,6 +100,7 @@ position = Vector2(323, 242)
 scale = Vector2(3.89071, 4.15014)
 
 [node name="transition" type="ColorRect" parent="."]
+z_index = 6
 layout_mode = 0
 offset_left = -14.0
 offset_top = -17.0
@@ -118,6 +120,8 @@ volume_db = 8.069
 autoplay = true
 
 [node name="Start2" type="Button" parent="."]
+z_index = 1
+layout_mode = 0
 offset_left = 258.0
 offset_top = 434.0
 offset_right = 407.0
@@ -143,7 +147,7 @@ offset_left = 23.0
 offset_top = 450.0
 offset_right = 63.0
 offset_bottom = 476.0
-text = "V 1.0.0"
+text = "V 1.0.1"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
