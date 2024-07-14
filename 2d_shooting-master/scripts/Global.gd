@@ -1,7 +1,7 @@
 extends Node
 
 var is_pulso_ritmo = false
-var tempo = 1
+var tempo = 2.5
 var agujero_position = 0
 var godbattle = false
 #variables para incremenatr en parida
@@ -14,7 +14,7 @@ var bullet_sizeX = 0.55
 var bullet_sizeY = 0.55
 var recarga = 2
 var piercing = false
-
+var streak = 0
 var shop = false
 var max_bulelts = 10
 var current_bullets = 10
@@ -40,6 +40,8 @@ var death = false
 	#Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
 
 func _process(delta):
+	if daño < 30:
+		daño = 30
 	if Input.is_action_pressed("exit"):
 		get_tree().quit()
 	health = health

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://b38rabr8dphfs"]
+[gd_scene load_steps=49 format=3 uid="uid://b38rabr8dphfs"]
 
 [ext_resource type="Texture2D" uid="uid://lhmirvskgjwh" path="res://sprites/lobby.png" id="1_f5nyi"]
 [ext_resource type="Script" path="res://scripts/lobby.gd" id="1_x7amr"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://dtahamr86oofp" path="res://scenes/Items/casinocard.tscn" id="22_p020b"]
 [ext_resource type="PackedScene" uid="uid://5g7ep17yy7k" path="res://scenes/Items/shop.tscn" id="28_h6dwb"]
 [ext_resource type="Texture2D" uid="uid://bkbgvfylwhjh7" path="res://sprites/puertacasuniarreglo.png" id="32_7sfmq"]
+[ext_resource type="PackedScene" uid="uid://3b7lpvj3ysmy" path="res://scenes/Enemies/dummie.tscn" id="34_dp7r6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n2vo0"]
 animations = [{
@@ -367,7 +368,7 @@ shape = SubResource("RectangleShape2D_xv8gx")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-144.592, 0)
-polygon = PackedVector2Array(-88, 137, -64, 149, 13.9928, 80.7782, 15.1588, 83.0536, 14.5757, 151.317, 256.534, 151.317, 256.534, 80.7782, 326.498, 80.7782, 326.498, 7.96405, 326.498, -66.5567, 288.018, -66.5567, 288.018, -224.7, 372.558, -224.7, 372.558, -202.514, 409.289, -202.514, 409.872, -224.131, 443.688, -224.131, 443.688, -65.9878, 401.126, -65.9878, 401.126, 7.39519, 401.126, 81.9159, 601.69, 81.9159, 601.69, 146.197, 671.653, 146.197, 671.653, 192.844, 883.877, 192.844, 883.877, 245.748, 672.236, 245.748, 672.236, 283.861, 434.942, 283.861, 434.942, 386.256, 339.908, 386.256, 339.908, 283.861, 18.657, 283.861, 18.657, 151.886, 14.5757, 83.6225, -82, 151, -92.7023, 263.951, -6, 413, 220, 452, 432, 473, 753, 404, 859.973, 391.945, 1020.31, 348.712, 1033.72, 167.245, 934.601, 93.2931, 720, 29, 670, -80, 472.256, -291.257, 279.273, -286.137, 50, -86, -20.4062, -73.9519, -89, -64, -100, 5, -76, 59)
+polygon = PackedVector2Array(-88, 137, -64, 149, 13.9928, 80.7782, 15.1588, 83.0536, 14.5757, 151.317, 256.534, 151.317, 256.534, 80.7782, 326.498, 80.7782, 326.498, 7.96405, 326.498, -66.5567, 288.018, -66.5567, 288.018, -224.7, 372.558, -224.7, 372.558, -202.514, 409.289, -202.514, 409.872, -224.131, 443.688, -224.131, 443.688, -65.9878, 401.126, -65.9878, 401.126, 7.39519, 401.126, 81.9159, 601.69, 81.9159, 601.69, 146.197, 671.653, 146.197, 671.653, 192.844, 883.877, 192.844, 883.877, 245.748, 883.877, 283.861, 672.236, 283.861, 434.942, 283.861, 434.942, 386.256, 339.908, 386.256, 339.908, 283.861, 18.657, 283.861, 18.657, 151.886, 14.5757, 83.6225, -82, 151, -92.7023, 263.951, -6, 413, 220, 452, 432, 473, 753, 404, 859.973, 391.945, 1020.31, 348.712, 1033.72, 167.245, 934.601, 93.2931, 720, 29, 670, -80, 472.256, -291.257, 279.273, -286.137, 50, -86, -20.4062, -73.9519, -89, -64, -100, 5, -76, 59)
 
 [node name="puerta casino" type="AnimatedSprite2D" parent="."]
 position = Vector2(219.22, 47.2154)
@@ -451,6 +452,10 @@ scale = Vector2(1.375, 1.375)
 [node name="shopitem3" parent="." instance=ExtResource("28_h6dwb")]
 position = Vector2(-82.2076, 111.497)
 scale = Vector2(1.375, 1.375)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("34_dp7r6")]
+position = Vector2(682.731, 220.718)
+scale = Vector2(1.38647, 1.24767)
 
 [connection signal="area_entered" from="Mauina/casinofllor" to="." method="_on_casinofllor_area_entered"]
 [connection signal="area_exited" from="Mauina/casinofllor" to="." method="_on_casinofllor_area_exited"]

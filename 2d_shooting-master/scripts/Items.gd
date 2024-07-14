@@ -191,6 +191,7 @@ func cannon():
 	Global.velocidadbala -= 170
 	Global.bullet_sizeX += 0.22
 	Global.bullet_sizeY += 0.22
+	Global.daño += 20
 
 func thepower():
 	Global.cadencia -= 0.015

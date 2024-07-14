@@ -183,7 +183,7 @@ func _on_pressed():
 		if numitem == 18: #toastburnt
 			Item.maxglove()
 		if numitem == 19: #toastburnt
-			Item.pirlete()
+			Item.s()
 		if numitem == 20: #toastburnt
 			Item.reboot()
 		if numitem == 21: #toastburnt

@@ -16,8 +16,10 @@ func _ready():
 func _process(delta):
 	if Global.secondphaseboss == true:
 		$CollisionPolygon2D.disabled = true
+		$Area2D/CollisionPolygon2D2.disabled = true
 	else:
 		$CollisionPolygon2D.disabled = false
+		$Area2D/CollisionPolygon2D2.disabled = false
 	if Global.death == true:
 		$AudioStreamPlayer2D.stop()
 

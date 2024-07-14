@@ -148,7 +148,7 @@ func selectItem():
 	elif numitem == 3:
 		$CardTexture.texture = load("res://sprites/Items/nuke.png")
 	elif numitem == 4:
-		$CardTexture.texture = load("res://sprites/Items/particel accel.png")
+		$CardTexture.texture = load("res://sprites/Items/paticle acc.png")
 	elif numitem == 5:
 		$CardTexture.texture = load("res://sprites/Items/pi.png")
 	elif numitem == 6: 

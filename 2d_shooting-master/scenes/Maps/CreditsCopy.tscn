@@ -21,18 +21,22 @@ texture = ExtResource("1_xnbru")
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 40.0
-offset_top = 120.0
-offset_right = 804.0
-offset_bottom = 631.0
+offset_top = 76.0
+offset_right = 809.0
+offset_bottom = 544.0
 scale = Vector2(0.767064, 0.735597)
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 21
 text = "Tunnels by FoolBoyMedia -- https://freesound.org/s/341865/ -- License: Attribution NonCommercial 4.0
 
 
 Sad game menu loop #2 by AxelTheCocker02 -- https://freesound.org/s/743711/ -- License: Attribution 4.0
 
 
-8-bit Hurt1.aif by timgormly -- https://freesound.org/s/170148/ -- License: Attribution 3.0"
+8-bit Hurt1.aif by timgormly -- https://freesound.org/s/170148/ -- License: Attribution 3.0
+
+All game made by Nacho Herrero
+
+Special thanks to Moritz and all people who support the game <3"
 autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="."]

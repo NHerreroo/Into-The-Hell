@@ -18,7 +18,7 @@ func get_random_pos():
 		num1 = randi_range(-257, 606)
 		num2 = randi_range(-76, 385)
 		var potential_pos = Vector2(num1, num2)
-		if potential_pos.distance_to(player_position) >= 200:
+		if potential_pos.distance_to(player_position) >= 300:
 			break
 
 # enemigos disponibles:
@@ -77,6 +77,8 @@ func random_enemy():
 		ThrowerInstance()
 		
 func _ready():
+	if Global.number_of_floor == 3:
+		Global.tempo = 1.7
 	Global.is_playing = true
 	player_position = $"../Player".position
 	await get_tree().create_timer(1).timeout
@@ -85,3 +87,5 @@ func _ready():
 		if Global.is_pulso_ritmo:
 			Global.enemies_on_screen += 1
 			random_enemy()
+
+

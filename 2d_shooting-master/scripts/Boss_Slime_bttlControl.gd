@@ -24,6 +24,7 @@ func _process(delta):
 func _on_area_2d_area_entered(area):
 		if area.is_in_group("player"):
 			$Player.visible = false
+			Global.streak += 1
 			$ColorRect/AnimationPlayer.play("final")
 			await get_tree().create_timer(2).timeout
 			get_tree().change_scene_to_file("res://scenes/Maps/credits.tscn")

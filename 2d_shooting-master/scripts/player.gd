@@ -28,7 +28,7 @@ func _process(delta):
 		$Flecha.visible = true
 	else:
 		$Flecha.visible = false
-	$Flecha.look_at(Vector2(140,94))
+	$Flecha.look_at(Vector2(140, 94))
 	if Global.health >= 11:
 		#Global.godbattle = false
 		Global.death = true
@@ -39,9 +39,6 @@ func _process(delta):
 		await get_tree().create_timer(2).timeout
 		Engine.time_scale = 1
 		get_tree().change_scene_to_file("res://scenes/Player/dead.tscn")
-		
-		
-		
 	elif Global.health <= 11:
 		$Death.visible = false
 		Global.death = false
@@ -49,17 +46,17 @@ func _process(delta):
 	if Global.health < 1:
 		Global.health = 1
 		
-		
 func _physics_process(delta):
 	speed = Global.velocidad
-	$Gun1/Muzzle.scale.x = Global.bullet_sizeX;
-	$Gun1/Muzzle.scale.y = Global.bullet_sizeY;
+	$Gun1/Muzzle.scale.x = Global.bullet_sizeX
+	$Gun1/Muzzle.scale.y = Global.bullet_sizeY
 	if damagecoldown == true:
 		$CollisionShape2D.disabled = true
 		$Area2D/CollisionShape2D.disabled = true
 	elif damagecoldown == false:
 		$CollisionShape2D.disabled = false
 		$Area2D/CollisionShape2D.disabled = false
+
 	get_input()
 	
 	$Character.flip_h = false
@@ -87,10 +84,16 @@ func _physics_process(delta):
 
 	if dash_cooldown_timer > 0.0:
 		dash_cooldown_timer -= delta
+		$coldown.visible = true
+		$coldown.play("default")
+	else:
+		$coldown.visible = false
+		$coldown.play("new_animation")
 
 	move_and_slide()
 
 var damagecoldown = false
+
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("mobs"):
 		if damagecoldown == false:
@@ -101,7 +104,6 @@ func _on_area_2d_body_entered(body):
 			$Damage/Damage/AnimationPlayer.play("takedamage")
 			await get_tree().create_timer(1).timeout
 			damagecoldown = false
-
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("limits"):
@@ -116,4 +118,3 @@ func _on_area_2d_area_entered(area):
 			$Damage/Damage/AnimationPlayer.play("takedamage")
 			await get_tree().create_timer(1).timeout
 			damagecoldown = false
-		

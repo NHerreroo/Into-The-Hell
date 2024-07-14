@@ -310,6 +310,11 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 20.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -419,6 +424,13 @@ position = Vector2(-2, -63)
 scale = Vector2(1.45751, 1.39164)
 sprite_frames = SubResource("SpriteFrames_4vqb7")
 frame_progress = 0.808582
+
+[node name="coldown" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 0.45098, 1, 1)
+position = Vector2(-2, -85)
+scale = Vector2(1.45751, 1.39164)
+sprite_frames = SubResource("SpriteFrames_4vqb7")
+frame_progress = 0.389132
 
 [node name="Death" type="ColorRect" parent="."]
 visible = false

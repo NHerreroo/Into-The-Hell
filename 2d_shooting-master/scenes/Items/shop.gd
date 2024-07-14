@@ -6,7 +6,7 @@ func get_random_number():
 	numitem = randi() % 5 + 1 #36
 
 func get_random_price():
-	price = randi() % 14 + 7 #36
+	price = randi_range(6, 13)
 
 func _ready():
 	$AnimationPlayer.play("item")

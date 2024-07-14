@@ -9,7 +9,7 @@ var flybomb = preload("res://scenes/Enemies/flybomb.tscn")
 
 var speed = 0
 var accel = 7
-var health = 7000
+var health = 13000
 var repelForce = 300
 var sprite = "idle"
 

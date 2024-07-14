@@ -6,7 +6,7 @@ var bullet = preload("res://scenes/Enemies/balas/bala_enemy.tscn")
 
 var speed = 0
 var accel = 7
-var health = 7000
+var health = 10000
 var repelForce = 300
 var sprite = "idle"
 

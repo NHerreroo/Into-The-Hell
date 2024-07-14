@@ -24,6 +24,7 @@ func _ready():
 	while true:
 		await get_tree().create_timer(1).timeout
 		if Global.enemies_on_screen == 0:
+			await get_tree().create_timer(2).timeout
 			var itemSelector = item.instantiate()
 			get_tree().root.add_child(itemSelector)
 			break
